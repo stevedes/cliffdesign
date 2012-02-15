@@ -228,7 +228,7 @@ Please read more about it at: http://php.net/manual/en/function.date-default-tim
 
 */ 
 
-c::set('timezone', 'UTC');
+c::set('timezone', 'GMT');
 
 
 /*
@@ -262,7 +262,7 @@ php errors there.
 
 */
 
-c::set('debug', false);
+c::set('debug', true);
 
 
 /* 
