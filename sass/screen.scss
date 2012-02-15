@@ -24,7 +24,7 @@ $grid-background-baseline-height: 1.461538462em;
 $grid-background-baseline-color: rgba(255, 0, 0, 0.4);
 
 // Horizontal Grid
-$max-width: 970px;
+$max-width: 940px;
 $gutter: 20px;
 $content-column: percentage(620 / 960);
 $sidebar-column: percentage(315 / 960);
@@ -91,7 +91,7 @@ footer#bottom {
 
 #content {
 	margin-left: 225px;
-	padding: $gutter 0 $gutter $gutter;
+	padding: $gutter $gutter $gutter $gutter;
 	background: #fff;
 }
 
@@ -103,7 +103,18 @@ section#portfolio {
 
 		h2 {
 			color: $green;
-			@extend h1;
+
+			padding: 0;
+			margin: 0;
+			font-weight: bold;
+
+			em {
+				font-size: 11px;
+				display: inline-block;
+				padding-left: $gutter;
+				text-transform: uppercase;
+				font-style: normal;
+			}
 		}
 	}
 }

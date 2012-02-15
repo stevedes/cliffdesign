@@ -1,0 +1,9 @@
+Title: A panel title
+----
+Align: 
+----
+Text:
+
+Lorem ipsum
+
+(image: 1.jpg text: Alt text here)

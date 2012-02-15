@@ -1,0 +1,7 @@
+Title: Brand Creation
+----
+Fragment: brands
+----
+Text:
+
+Lorem ipsum
