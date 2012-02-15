@@ -116,7 +116,21 @@ section#portfolio {
 				font-style: normal;
 			}
 		}
+
+		div {
+			@include pie-clearfix;
+		}
+		div.align-left {
+			
+			p, figure {
+				float: left;
+				margin-right: $gutter / 2;
+			}
+		}
 	}
+
+
+
 }
 
 

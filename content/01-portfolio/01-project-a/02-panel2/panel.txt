@@ -1,6 +1,6 @@
 Title: A panel title
 ----
-Align: left
+Align: right
 ----
 Text:
 

@@ -31,15 +31,49 @@
 							</figure>
 							<?php endif ?>
 
-							<h2><?php echo html($item->title()) ?> <em><?php echo html($item->subtitle()) ?></em></h2>
-							<?php echo kirbytext($item->text()) ?>
+							<div class="contents">
+								
+								<?php
 
-							<?php $panels = $item->children()->visible(); ?>
-							<?php if($panels && $panels->count()): ?>
-								<?php foreach($panels AS $panel): ?>
-									<?php echo kirbytext($panel->text()) ?>
-								<?php endforeach ?>
-							<?php endif; ?>
+								echo '<h2>' . html($item->title()). ' <em>' . html($item->subtitle()) . '</em></h2>';
+								echo kirbytext($item->text());
+
+								// are panels?
+								$panels = $item->children()->visible();
+
+								if($panels && $panels->count()) {
+									
+									foreach($panels AS $panel) {
+
+										$classes = array();
+
+										$classes[] = 'align-' . $panel->align();
+
+										if ($panel->text() == '') {
+											$classes[] = 'notext';
+										}
+										$classes[] = 'images-' . $panel->images()->count();
+		
+										echo '<div class="' . implode(' ', $classes) . '">';
+
+										echo kirbytext($panel->text());
+
+										if($panel->hasImages()) {
+
+											foreach($panel->images() as $image) {
+												echo '<figure><img src="' . $image->url() . '" /></figure>';
+											}
+
+										}
+
+										echo '</div>';
+									}
+
+								}
+
+								?>
+			
+							</div>
 
 						</article>
 
@@ -51,8 +85,6 @@
 						</article>
 
 					<?php endif; ?>
-
-					
 
 				<?php endforeach ?>   
 				
