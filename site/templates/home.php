@@ -1,8 +1,12 @@
 <?php snippet('header') ?>
-<?php snippet('navigation') ?>
-
 	
-<div role="main">
+<div id="content" role="main">
+
+	<section class="intro">
+		<h1><?php echo html($page->title()) ?></h1>
+		<?php echo kirbytext($page->text()) ?>
+	</section>
+
 
 	<?php foreach($pages->visible() AS $section) : ?>
 
@@ -17,7 +21,7 @@
 				<?php foreach($items AS $item): ?>
 
 					<article>
-						<h1><?php echo html($item->title()) ?></h1>
+						<h2><?php echo html($item->title()) ?> <em><?php echo html($item->subtitle()) ?></em></h2>
 					</article>
 
 				<?php endforeach ?>   

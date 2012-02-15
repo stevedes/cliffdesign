@@ -44,6 +44,15 @@
 <body>
 <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
 
-  <header>
-    <h1><a href="<?php echo url() ?>"><?php echo h($site->title()) ?></a></h1>
-  </header>
+<div id="wrapper">
+    
+    <header id="top">
+        <h1><a href="<?php echo url() ?>"><?php echo h($site->title()) ?></a></h1>
+        <nav id="navigation">
+            <ul>
+            <?php foreach($pages->visible() AS $p): ?>
+                <li><a href="/#<?php echo $p->fragment() ?>"><?php echo html($p->title()) ?></a></li>
+            <?php endforeach ?>
+            </ul>
+        </nav>
+    </header>

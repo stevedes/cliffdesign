@@ -1,0 +1,199 @@
+#wrapper {
+	width: 960px;
+}
+
+#top {
+		h1 {
+			a {
+				background-image: url('/img/design/logo.png');
+				width: 160px;
+				height: 70px;
+			}
+		}
+	}
+	
+	nav.services {
+		float: left;
+		width: 800px;
+		clear: none;
+		li {	
+			&#service-audit {
+				width: 141px;
+			}
+			&#service-accounts {
+				width: 149px;
+			}
+			&#service-tax {
+				width: 131px;
+			}
+			&#service-family {
+				width: 121px;
+			}
+			&#service-corporate {
+				width: 139px;
+			}
+			&#service-private {
+				width: 119px;
+			}
+
+			
+			a {
+				height: 66px;
+				line-height: 100px;
+				font-size: 13px;
+
+				&:after {
+					height: 66px;
+				}
+			}
+			
+		}
+
+	}
+
+article.home_blog {
+
+	header {
+		background: #1F3260;
+		h2 {
+
+			
+		}
+	}
+
+	figure {
+		padding: 0;
+		line-height: 0;
+		img {
+			margin: 0;
+		}
+	}
+
+	div {
+		position: absolute;
+		top: 0px;
+		right:0px;
+
+		width: 310px;
+		padding: 30px 15px;
+		height: 285px;
+		background: #1F3260;
+		&:after {
+			background: transparent;
+			top: 32px;
+			left: -30px;
+			border-width: 15px 15px;
+			border-color: transparent #1F3260 transparent transparent;
+			height: 0px;
+			width: 0px;
+			line-height: 0px;
+			padding: 0px;
+		}
+
+		h1 {
+			a {
+				border-bottom: 2px dotted #9A9FAF;
+			}
+		}
+
+	}
+
+}
+
+.home_services {
+
+	ul {
+		margin-left: 0;
+	}
+
+	li {
+
+		width: 300px;
+
+		margin-right: 10px;
+		margin-left: 10px;
+
+		&.last {
+			margin-right: 0;
+		}
+		/*
+		h1 {
+			
+
+			a {
+				border: none;
+				border: 4px solid #efefef;
+
+				&:hover {
+					border-left-color: #ddd;
+					border-top-color: #ddd;
+					border-bottom-color: #ddd;
+				}
+			}
+		}
+
+		&.audit-and-advisory a {
+			border-color: #efefef;
+			border-right-color: #0d8b48;
+			background-image: url('/img/design/services/ie/audit-and-advisory.png');
+		}
+		&.accounting-support a {
+			border-color: #efefef;
+			border-right-color: #a51a35;
+			background-image: url('/img/design/services/ie/accounting-support.png');
+		}
+
+		&.taxation-services a {
+			border-color: #efefef;
+			border-right-color: #00607b;
+			background-image: url('/img/design/services/ie/taxation-services.png');
+		}
+		&.family-business a {
+			border-color: #efefef;
+			border-right-color: #d1581c;
+			background-image: url('/img/design/services/ie/family-business.png');
+		}
+		&.corporate-finance a {
+			border-color: #efefef;
+			border-right-color: #7ac144;
+			background-image: url('/img/design/services/ie/corporate-finance.png');
+		}
+		&.private-clients a {
+			border-color: #efefef;
+			border-right-color: #0068ad;
+			background-image: url('/img/design/services/ie/private-clients.png');
+		}
+		*/
+	}
+}
+
+.button.sending, .button.sending:hover {
+    background: #aaa;
+    padding-left: 10px;
+}
+
+#offices {
+	article.last {
+		margin-right: 0;
+	}
+}
+
+
+#bottom {
+
+	#footer_sections {
+		padding-bottom: 0;
+		article {
+			
+			width: 298px;
+			margin-left: 10px;
+			margin-right: 10px;
+			border-right: 2px dotted #ccc;
+			&.last {
+				border-right: none;
+				margin-right: 0;
+			}
+		}
+
+	}
+}

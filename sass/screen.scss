@@ -1,0 +1,112 @@
+
+//	******************************************************************
+//	Compass Framework
+//	******************************************************************
+	
+@import
+	"compass/reset",
+	"compass/utilities",
+	"compass/css3",
+	"compass/typography/vertical_rhythm",
+	"compass/layout/grid-background";
+
+//	******************************************************************
+//	Global Variables
+//	******************************************************************
+	
+// Vertical Rhythm
+$base-font-size: 16px;
+$base-line-height: 25px;
+
+// Debug Vertical Grid
+$debug: 0;
+$grid-background-baseline-height: 1.461538462em;
+$grid-background-baseline-color: rgba(255, 0, 0, 0.4);
+
+// Horizontal Grid
+$max-width: 970px;
+$gutter: 20px;
+$content-column: percentage(620 / 960);
+$sidebar-column: percentage(315 / 960);
+
+// Base Styles
+$font-family: "Helvetica Neue", sans-serif;
+$text-color: #000;
+$green: #21b685;
+
+
+//	******************************************************************
+//	Base Styles
+//	******************************************************************
+
+// Sets body font size based on vertical rhythm
+@include establish-baseline($base-font-size);
+
+html {
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%; 
+}
+
+body {
+	font-family: $font-family;
+	color: $text-color;
+
+	background: url('/assets/images/sidebar.png') 0px 0px repeat-y;
+
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%; 
+}
+
+//	******************************************************************
+//	Imports
+//	******************************************************************
+@import
+	"tools",
+	"typography",
+	"forms";
+
+
+//	******************************************************************
+//	Main Layout
+//	******************************************************************
+
+#wrapper {
+	max-width: $max-width;
+}
+
+
+header#top {
+	position: fixed;
+	width: 225px;
+	top: 0px;
+	left: 0px;
+}
+
+footer#bottom {
+	position: fixed;
+	width: 225px;
+	bottom: 0px;
+	left: 0px;
+}
+
+#content {
+	margin-left: 225px;
+	padding: $gutter 0 $gutter $gutter;
+	background: #fff;
+}
+
+section#portfolio {
+	
+	article {
+		background: #1a1f1f;
+		padding: $gutter;
+
+		h2 {
+			color: $green;
+			@extend h1;
+		}
+	}
+}
+
+
+
