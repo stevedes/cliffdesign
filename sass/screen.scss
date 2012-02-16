@@ -93,7 +93,12 @@ footer#bottom {
 	margin-left: 225px;
 	padding: $gutter $gutter $gutter $gutter;
 	background: #fff;
+
+	section {
+		padding-top: $gutter;
+	}
 }
+
 
 section#portfolio {
 	
@@ -132,6 +137,13 @@ section#portfolio {
 
 
 }
+
+
+
+div#scrollfix {
+
+}
+
 
 
 

@@ -89,11 +89,12 @@
 				<?php endforeach ?>   
 				
 			<?php endif ?>
-			
+
 		</section>
 
 	<?php endforeach ?>
 
+	<div id="scrollfix"></div>
 </div>
 
 
