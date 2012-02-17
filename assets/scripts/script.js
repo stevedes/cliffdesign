@@ -25,10 +25,40 @@
 		return c*((t=t/d-1)*t*((s+1)*t + s) + 1) + b;
 	};
 
+	var cliffScroll = function(e) {
+		
+		var target_top = $(e).offset().top;
+		var current_position = $(window).scrollTop();
+		var distance = 0;
+
+		// going back up
+		if (current_position > target_top) {
+			distance = current_position - target_top;
+		}
+		// going down
+		else {
+			distance = target_top - current_position;
+		}
+
+		var time_to_scroll = 300 + ((distance / 1000) * 300);
+
+		$('html, body').animate(
+			{ scrollTop: target_top },
+			time_to_scroll,
+			$.bez([.59,.17,.39,1.19]),
+			function() {
+			
+				window.location.hash = e;
+			}
+		);
+
+	}
+
 
     /*
     	Custom Plugins
     */
+
 
     /*
     	Make Rocket Go Now!
@@ -45,10 +75,26 @@
 
 		body.find('#scrollfix').height($(window).height());
 
-		body.find('#navigation a').click(function() {
+		body.find('#navigation a').click(function(e) {
 			
-			var target = $(this).attr('href');
-			var target_top = $(target).offset().top;
+			e.preventDefault();
+
+			var targ = $(this).attr('href');
+
+			//window.location.hash = targ;
+
+			cliffScroll(targ);
+
+			//return false;
+		});
+		
+		$(window).hashchange( function(event){
+
+			event.preventDefault();
+
+			/*
+		
+			var target_top = $(location.hash).offset().top;
 			var current_position = $(window).scrollTop();
 			var distance = 0;
 
@@ -60,22 +106,20 @@
 			else {
 				distance = target_top - current_position;
 			}
-			//alert($(window).scrollTop());
 
-			//$('html, body').scrollTo(target, 650, {easing: $.bez([.75,.36,.35,1.16])});
+			var time_to_scroll = 300 + ((distance / 1000) * 300);
 
-			var time_to_scroll = 200 + ((distance / 1000) * 400);
+			$('html, body').animate(
+				{ scrollTop: 29 },
+				500
+			);
 
-			//alert(time_to_scroll);
-
-			$('html, body').animate({
-			    scrollTop: target_top
-			}, time_to_scroll, $.bez([.59,.04,.35,1.16]));
-			
-			return false;
+			*/
+			cliffScroll(location.hash);
+	
 		});
-		
-
+				
+	
 		
 
 	});
