@@ -82,6 +82,21 @@ header#top {
 	max-width: 224px;
 	top: 0px;
 	left: 0px;
+
+	h1 {
+		margin: 0;
+		padding: 0;
+		border: none;
+		height: 110px;
+		background: url('/assets/images/logo_bg.png') 0px 0px no-repeat;
+		a {
+			display: block;
+			height: 110px;
+			background: url('/assets/images/logo.png') 0px 0px no-repeat;
+			text-indent: -99999px;
+			border: none;
+		}
+	}
 }
 
 footer#bottom {
