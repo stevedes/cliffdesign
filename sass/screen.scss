@@ -26,8 +26,8 @@ $grid-background-baseline-color: rgba(255, 0, 0, 0.4);
 // Horizontal Grid
 $max-width: 940px;
 $gutter: 20px;
-$content-column: percentage(620 / 960);
-$sidebar-column: percentage(315 / 960);
+$content-column: percentage(695 / 940);
+$sidebar-column: percentage(225 / 940);
 
 // Base Styles
 $font-family: "Helvetica Neue", sans-serif;
@@ -70,27 +70,30 @@ body {
 //	Main Layout
 //	******************************************************************
 
-#wrapper {
+#welcome {
 	max-width: $max-width;
+	position: relative;
 }
 
 
 header#top {
 	position: fixed;
-	width: 225px;
+	width: $sidebar-column;
+	max-width: 224px;
 	top: 0px;
 	left: 0px;
 }
 
 footer#bottom {
 	position: fixed;
-	width: 225px;
+	width: $sidebar-column;
+	max-width: 224px;
 	bottom: 0px;
 	left: 0px;
 }
 
 #content {
-	margin-left: 225px;
+	margin-left: $sidebar-column;
 	padding: $gutter $gutter $gutter $gutter;
 	background: #fff;
 
