@@ -48,7 +48,7 @@
     <div id="welcome">
         
         <header id="top">
-            <h1><a href="#welcome"><?php echo h($site->title()) ?></a></h1>
+            <h1><a href="#welcome"><span><?php echo h($site->title()) ?></span></a></h1>
             <nav id="navigation">
                 <ul>
                 <?php foreach($pages->visible() AS $p): ?>

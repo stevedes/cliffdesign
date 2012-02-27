@@ -95,6 +95,35 @@ header#top {
 			background: url('/assets/images/logo.png') 0px 0px no-repeat;
 			text-indent: -99999px;
 			border: none;
+			position: relative;
+
+			//@include transition-property(opacity);
+  			//@include transition-duration(0.5s);
+
+  			span {
+				display: block;
+				content: "";
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				background: url('/assets/images/logo.png') 0px -110px no-repeat;
+				opacity: 0;
+
+				@include transition-property(opacity);
+  				@include transition-duration(0.5s);
+  				-webkit-transition-timing-function: ease-in;  
+
+  				&:hover {
+  					opacity: 1;
+  				}
+			}
+			
+			&:hover {
+				//opacity: 0;
+			}
+			
 		}
 	}
 }
