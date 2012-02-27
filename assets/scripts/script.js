@@ -68,24 +68,10 @@
 
 		$('#top a').click ( function(e) {
 
+			var links = $('#top a');
+			links.removeClass('active');
 
-			if( ! this.hash.length ) {
-
-				e.preventDefault();
-
-				//$(window).hashchange();
-				var target = '#top';
-				var target_top = $(target).offset().top;
-				var current_position = $(window).scrollTop();
-				var distance = current_position;
-
-				var time_to_scroll = 100 + ((distance / 1000) * 150);
-
-				$.scrollTo(0, time_to_scroll, { easing: $.bez([.59,.17,.53,1.12]), onAfter: function() { window.location.hash = ''; } });
-
-				return false;
-			}
-
+			var link = $(this);
 			var $this = this;
 			var $this_hash = scrollto ( this );
 			// Determine applicable cases:
@@ -115,6 +101,9 @@
 					location.hash = $this.hash;
 					dummy.remove();
 					$this_hash.attr ( 'id', hash );
+
+					// set active class
+					link.addClass('active');
 				}
 			}
 		});
@@ -123,6 +112,8 @@
 		$(window).hashchange( function(event){
 
 			var $this = location, $this_hash = scrollto ( location );
+
+			var navLinks = $('#top a');
 
 		    if ( $this_hash.length )
 		    {
@@ -141,9 +132,13 @@
 					distance = target_top - current_position;
 				}
 
-				var time_to_scroll = 100 + ((distance / 1000) * 150);
+				var time_to_scroll = 200 + ((distance / 1000) * 150);
 
-				$.scrollTo(target_top, time_to_scroll, { easing: $.bez([.59,.17,.53,1.12]) });
+				$.scrollTo(target_top, time_to_scroll, { easing: $.bez([.69,.17,0,1.2]) });
+
+				// add active class to nav
+
+
 			}
 			// else go to top
 			else {

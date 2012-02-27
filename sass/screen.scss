@@ -87,6 +87,7 @@ header#top {
 		margin: 0;
 		padding: 0;
 		border: none;
+
 		height: 110px;
 		background: url('/assets/images/logo_bg.png') 0px 0px no-repeat;
 		a {
@@ -96,9 +97,6 @@ header#top {
 			text-indent: -99999px;
 			border: none;
 			position: relative;
-
-			//@include transition-property(opacity);
-  			//@include transition-duration(0.5s);
 
   			span {
 				display: block;
@@ -119,11 +117,45 @@ header#top {
   					opacity: 1;
   				}
 			}
-			
-			&:hover {
-				//opacity: 0;
+		}
+	}
+
+	nav {
+		font-size: 12px;
+		text-transform: uppercase;
+		padding: ($gutter / 2) 0;
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			li {
+				margin: 0;
+				padding: 0;
 			}
-			
+		}
+		a {
+			display: block;
+			padding: ($gutter / 2) $gutter;
+			font-weight: bold;
+			//@include text-shadow(0px -1px 1px rgba(0,0,0,0.2));
+			@include background-clip(padding-box);
+
+			background-clip: padding-box; 
+			border-bottom: 1px solid rgba(255,255,255,0);
+			border-top: 1px solid rgba(255,255,255,0);
+
+			@include transition-property(all);
+  			@include transition-duration(0.15s);
+  			-webkit-transition-timing-function: ease-out;
+
+			&:hover, &.active {
+				background: rgba(0,0,0,0.2);
+				border-top-color: rgba(0,0,0,0.1);
+				border-bottom-color: rgba(255,255,255,0.05);
+			}
+			&.active {
+				color: #e8e8e8;
+			}
 		}
 	}
 }
