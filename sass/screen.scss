@@ -121,7 +121,7 @@ header#top {
 	}
 
 	nav {
-		font-size: 12px;
+		font-size: 11px;
 		text-transform: uppercase;
 		padding: ($gutter / 2) 0;
 		ul {
@@ -139,8 +139,6 @@ header#top {
 			font-weight: bold;
 			//@include text-shadow(0px -1px 1px rgba(0,0,0,0.2));
 			@include background-clip(padding-box);
-
-			background-clip: padding-box; 
 			border-bottom: 1px solid rgba(255,255,255,0);
 			border-top: 1px solid rgba(255,255,255,0);
 
@@ -150,8 +148,8 @@ header#top {
 
 			&:hover, &.active {
 				background: rgba(0,0,0,0.2);
-				border-top-color: rgba(0,0,0,0.1);
-				border-bottom-color: rgba(255,255,255,0.05);
+				border-top-color: rgba(0,0,0,0.2);
+				border-bottom-color: rgba(255,255,255,0.075);
 			}
 			&.active {
 				color: #e8e8e8;
@@ -180,7 +178,6 @@ footer#bottom {
 
 
 section#portfolio {
-	
 	article {
 		background: #1a1f1f;
 		padding: $gutter;

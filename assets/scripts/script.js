@@ -65,11 +65,36 @@
 		// ensures page scroll works as expected
 		body.find('#scrollfix').height($(window).height());
 
+		// Waypoints
+		$('#about, #portfolio, #services, #pipeline, #intro').waypoint(function(event, direction) {
+
+			var tar = $(this).attr('id');
+			$('#top a[href!="' + tar + '"]').removeClass('active');
+
+			if (direction === 'down') {
+				$('#top a[href*="' + tar + '"]').addClass('active');
+			}
+			else {
+				$('#top a[href*="' + tar + '"]').parent().prev().find('a').addClass('active');
+			}
+				
+
+		}, {
+		   offset: '0px'  // middle of the page
+		});
+		/*
+		$('#about, #portfolio, #services, #pipeline, #intro').waypoint(function(event, direction) {
+			if (direction === 'up') {
+				$('#top a[href!="' + tar + '"]').removeClass('active');
+				var tar = $(this).attr('id');
+				$('#top a[href*="' + tar + '"]').addClass('active');
+			}
+		}, {
+		   offset: 'bottom-in-view'
+		});
+		*/
 
 		$('#top a').click ( function(e) {
-
-			var links = $('#top a');
-			links.removeClass('active');
 
 			var link = $(this);
 			var $this = this;
@@ -85,9 +110,6 @@
 				}
 				
 				else {
-					//alert($this.hash);
-					//alert($this.hash);
-
 					// Update history without scrolling:
 					var hash = $this.hash.substr(1),
 					dummy = $( '' ).css({
@@ -101,9 +123,6 @@
 					location.hash = $this.hash;
 					dummy.remove();
 					$this_hash.attr ( 'id', hash );
-
-					// set active class
-					link.addClass('active');
 				}
 			}
 		});
@@ -113,10 +132,10 @@
 
 			var $this = location, $this_hash = scrollto ( location );
 
-			var navLinks = $('#top a');
+			// rmoeve any active classes
+			$('#top a').removeClass('active');
 
-		    if ( $this_hash.length )
-		    {
+		    if ( $this_hash.length ) {
 
 				var target = location.hash;
 				var target_top = $(target).offset().top;
@@ -137,17 +156,11 @@
 				$.scrollTo(target_top, time_to_scroll, { easing: $.bez([.69,.17,0,1.2]) });
 
 				// add active class to nav
+				$('#top a[href*="' + target + '"]').addClass('active');
 
-
-			}
-			// else go to top
-			else {
-				//alert('hello');
-				
 			}
 
 		});
-				
 	
 		if ( ! $(window).scrollTop() ) $(window).trigger ( 'hashchange' );
 
