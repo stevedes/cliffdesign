@@ -68,7 +68,14 @@
 		// Waypoints
 		$('#about, #portfolio, #services, #pipeline, #intro').waypoint(function(event, direction) {
 
+			
 			var tar = $(this).attr('id');
+
+			// if currently active, stop this nightmare
+			if ($('#top a[href*="' + tar + '"]').hasClass('active')) {
+				return true;
+			}
+
 			$('#top a[href!="' + tar + '"]').removeClass('active');
 
 			if (direction === 'down') {
@@ -80,6 +87,8 @@
 				
 
 		}, {
+			continuous: false,
+			onlyOnScroll: true,
 		   offset: '0px'  // middle of the page
 		});
 		/*
@@ -133,7 +142,7 @@
 			var $this = location, $this_hash = scrollto ( location );
 
 			// rmoeve any active classes
-			$('#top a').removeClass('active');
+			//$('#top a').removeClass('active');
 
 		    if ( $this_hash.length ) {
 
@@ -156,7 +165,7 @@
 				$.scrollTo(target_top, time_to_scroll, { easing: $.bez([.69,.17,0,1.2]) });
 
 				// add active class to nav
-				$('#top a[href*="' + target + '"]').addClass('active');
+				//$('#top a[href*="' + target + '"]').addClass('active');
 
 			}
 
