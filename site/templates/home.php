@@ -3,7 +3,7 @@
 <div id="content" role="main">
 
 	<section id="intro">
-		<h1><?php echo html($page->title()) ?></h1>
+		
 		<?php echo kirbytext($page->text()) ?>
 	</section>
 

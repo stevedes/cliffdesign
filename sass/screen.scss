@@ -18,6 +18,7 @@
 $base-font-size: 16px;
 $base-line-height: 25px;
 
+
 // Debug Vertical Grid
 $debug: 0;
 $grid-background-baseline-height: 1.461538462em;
@@ -33,7 +34,6 @@ $sidebar-column: percentage(225 / 940);
 $font-family: "Helvetica Neue", sans-serif;
 $text-color: #000;
 $green: #21b685;
-
 
 //	******************************************************************
 //	Base Styles
@@ -78,10 +78,11 @@ body {
 
 header#top {
 	position: fixed;
-	width: $sidebar-column;
-	max-width: 224px;
+	//width: $sidebar-column;
+	width: 225px;
 	top: 0px;
 	left: 0px;
+
 
 	h1 {
 		margin: 0;
@@ -116,14 +117,16 @@ header#top {
   				&:hover {
   					opacity: 1;
   				}
+
+
 			}
 		}
 	}
 
 	nav {
-		font-size: 11px;
+		font-size: 12px;
 		text-transform: uppercase;
-		padding: ($gutter / 2) 0;
+		padding: ($gutter) 0;
 		ul {
 			list-style: none;
 			margin: 0;
@@ -137,22 +140,53 @@ header#top {
 			display: block;
 			padding: ($gutter / 2) $gutter;
 			font-weight: bold;
-			//@include text-shadow(0px -1px 1px rgba(0,0,0,0.2));
+			@include text-shadow(0px -1px 1px rgba(0,0,0,0.2));
 			@include background-clip(padding-box);
 			border-bottom: 1px solid rgba(255,255,255,0);
 			border-top: 1px solid rgba(255,255,255,0);
-
+			position: relative;
 			@include transition-property(all);
-  			@include transition-duration(0.15s);
-  			-webkit-transition-timing-function: ease-out;
+  			
+			@include transition-duration(0.2s);
+				-webkit-transition-timing-function: ease-in-out;
 
-			&:hover, &.active {
-				background: rgba(0,0,0,0.2);
-				border-top-color: rgba(0,0,0,0.2);
+			&:hover {
+				
+				background: rgba(33,182,133,0.8);
+				color: #fff;
+				border-top-color: rgba(13,74,54,0.7);;
 				border-bottom-color: rgba(255,255,255,0.075);
 			}
+
 			&.active {
+				background: rgba(0,0,0,0.25);
+				border-top-color: rgba(0,0,0,0.25);
+				border-bottom-color: rgba(255,255,255,0.1);
 				color: #e8e8e8;
+				cursor: default;
+				@include transition-duration(0.15s);
+  				-webkit-transition-timing-function: ease-out;
+
+  				&:after {
+  					display: block;
+  					content: "";
+  					border: 4px solid;
+  					border-color: transparent transparent transparent rgba(232,232,232,0.95);
+  					width: 0px;
+  					height: 0px;
+  					position: absolute;
+  					top: 50%;
+  					right: 18px;
+  					margin-top: -4px;
+  					color: #e8e8e8;
+  				}
+			}
+
+			&:active {
+				background: #fff;
+				border-top-color: rgba(0,0,0,0.2);
+				border-bottom-color: rgba(255,255,255,0.075);
+				//color: #fff;
 			}
 		}
 	}
@@ -160,21 +194,50 @@ header#top {
 
 footer#bottom {
 	position: fixed;
-	width: $sidebar-column;
-	max-width: 224px;
+	//width: $sidebar-column;
+	width: 224px;
 	bottom: 0px;
 	left: 0px;
 }
 
 #content {
-	margin-left: $sidebar-column;
+	margin-left: 225px;
 	padding: $gutter $gutter $gutter $gutter;
 	background: #fff;
 
 	section {
 		padding-top: $gutter * 2;
+
+		&#intro {
+			padding-top: 0;
+
+			h2 {
+				font-size: ($base-font-size * 4);
+				padding: 0;
+				line-height: 1.1em;
+				
+				background: $green;
+				color: #fff;
+				padding: $gutter;
+				
+				//color: $green;
+
+			}
+
+			p {
+				padding: rhythm(0.6) 0;
+				margin-top: rhythm(0.75);
+				border-top: 1px solid #ccc;
+				border-bottom: 1px solid #ccc;
+				font-size: ($base-font-size * 1.5);
+				line-height: 1.4em;
+				font-style: italic;
+			}
+		}
 	}
 }
+
+
 
 
 section#portfolio {

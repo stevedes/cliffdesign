@@ -4,10 +4,13 @@
 }
 
 h1 {
-	font-size: ($base-font-size * 1.75);
-	padding: 0 0 rhythm(0.35) 0;
-	border-bottom: 1px solid #ccc;
+	font-size: ($base-font-size * 1.58);
+	padding: 3px 0 rhythm(0.35) 0;
+	//border-bottom: 1px solid #ccc;
 	margin-bottom: rhythm(0.4);
+
+	font-weight: 600;
+	text-transform: uppercase;
 }
 
 h2 {

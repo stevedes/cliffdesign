@@ -21,8 +21,9 @@
     	Plain JS Functions
     */
 
-    // should we scroll HTML or BODY?
 	function scrollto ($this) {
+		//console.log($this);
+
 		if ( ! $this.hash ) return ( "" );
 		var $this_hash = $($this.hash);
 		if ( ! $this_hash ) return ( "" );
@@ -72,24 +73,34 @@
 			var tar = $(this).attr('id');
 
 			// if currently active, stop this nightmare
-			if ($('#top a[href*="' + tar + '"]').hasClass('active')) {
+			if ($('#top a[href*="' + tar + '"]').hasClass('active') && direction === 'down') {
 				return true;
 			}
+			$('#top a').removeClass('active');
 
-			$('#top a[href!="' + tar + '"]').removeClass('active');
+			if (direction === 'down') {
+				//$('#top a[href!="' + tar + '"]').removeClass('active');
+				$('#top a[href*="' + tar + '"]').addClass('active');
+			}
+			else {
+				//$('#top a').removeClass('active');
+				$('#top a[href*="' + tar + '"]').parent().prev().find('a').addClass('active');
+			}
 
+			/*
 			if (direction === 'down') {
 				$('#top a[href*="' + tar + '"]').addClass('active');
 			}
 			else {
+
 				$('#top a[href*="' + tar + '"]').parent().prev().find('a').addClass('active');
 			}
-				
+			*/
 
 		}, {
-			continuous: false,
+			continuous: true,
 			onlyOnScroll: true,
-		   offset: '0px'  // middle of the page
+		   	offset: '0'  // middle of the page
 		});
 		/*
 		$('#about, #portfolio, #services, #pipeline, #intro').waypoint(function(event, direction) {
@@ -108,6 +119,8 @@
 			var link = $(this);
 			var $this = this;
 			var $this_hash = scrollto ( this );
+			//console.log($this_hash);
+
 			// Determine applicable cases:
 			if ( ! e.isDefaultPrevented()) {
 				e.preventDefault();
@@ -160,9 +173,9 @@
 					distance = target_top - current_position;
 				}
 
-				var time_to_scroll = 200 + ((distance / 1000) * 150);
+				var time_to_scroll = 150 + ((distance / 1000) * 150);
 
-				$.scrollTo(target_top, time_to_scroll, { easing: $.bez([.69,.17,0,1.2]) });
+				$.scrollTo(target_top, time_to_scroll, { easing: $.bez([.14,.32,.79,1.04]) });
 
 				// add active class to nav
 				//$('#top a[href*="' + target + '"]').addClass('active');
