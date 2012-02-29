@@ -25,7 +25,7 @@ $grid-background-baseline-height: 1.461538462em;
 $grid-background-baseline-color: rgba(255, 0, 0, 0.4);
 
 // Horizontal Grid
-$max-width: 940px;
+$max-width: 990px;
 $gutter: 20px;
 $content-column: percentage(695 / 940);
 $sidebar-column: percentage(225 / 940);
@@ -63,7 +63,8 @@ body {
 @import
 	"tools",
 	"typography",
-	"forms";
+	"forms",
+	"animations";
 
 
 //	******************************************************************
@@ -138,7 +139,7 @@ header#top {
 		}
 		a {
 			display: block;
-			padding: ($gutter / 2) $gutter;
+			padding: ($gutter / 1.75) $gutter;
 			font-weight: bold;
 			@include text-shadow(0px -1px 1px rgba(0,0,0,0.2));
 			@include background-clip(padding-box);
@@ -148,13 +149,13 @@ header#top {
 			@include transition-property(all);
   			
 			@include transition-duration(0.2s);
-				-webkit-transition-timing-function: ease-in-out;
+			-webkit-transition-timing-function: ease-in-out;
 
 			&:hover {
 				
 				background: rgba(33,182,133,0.8);
 				color: #fff;
-				border-top-color: rgba(13,74,54,0.7);;
+				border-top-color: rgba(13,74,54,0.7);
 				border-bottom-color: rgba(255,255,255,0.075);
 			}
 
@@ -202,36 +203,54 @@ footer#bottom {
 
 #content {
 	margin-left: 225px;
+	float: left;
 	padding: $gutter $gutter $gutter $gutter;
 	background: #fff;
 
 	section {
 		padding-top: $gutter * 2;
-
+		padding-right: 50px;
 		&#intro {
-			padding-top: 0;
+			padding-top: $gutter;
 
 			h2 {
-				font-size: ($base-font-size * 4);
+				font-size: ($base-font-size * 4.2);
 				padding: 0;
 				line-height: 1.1em;
-				
+				/*
 				background: $green;
 				color: #fff;
-				padding: $gutter;
-				
-				//color: $green;
+				padding: 16px 20px 21px 19px;
+				@include text-shadow(-1px -1px 1px rgba(0,0,0,0.1));
+				border-top: 1px solid rgba(0,0,0,0.15);
+				border-left: 1px solid rgba(0,0,0,0.15);
+				*/
+				color: $green;
 
 			}
 
 			p {
-				padding: rhythm(0.6) 0;
-				margin-top: rhythm(0.75);
-				border-top: 1px solid #ccc;
-				border-bottom: 1px solid #ccc;
+				//padding: rhythm(0.6) $gutter;
+				margin-top: rhythm(1);
+				//border-top: 1px solid #ccc;
+				//border-bottom: 1px solid #ccc;
 				font-size: ($base-font-size * 1.5);
-				line-height: 1.4em;
-				font-style: italic;
+				line-height: 1.5em;
+				//font-style: italic;
+
+				/*
+				a {
+					font-style: normal;
+					font-size: $base-font-size;
+				}
+				*/
+				a {
+					padding: 1px 2px;
+					background: rgba(33,182,133,0.2);
+					font-weight: normal;
+					color: $text-color;
+				}
+
 			}
 		}
 	}
@@ -241,9 +260,12 @@ footer#bottom {
 
 
 section#portfolio {
+
+	//padding-right: 0;
 	article {
 		background: #1a1f1f;
-		padding: $gutter;
+		margin-bottom: $gutter;
+	
 
 		h2 {
 			color: $green;
@@ -252,6 +274,97 @@ section#portfolio {
 			margin: 0;
 			font-weight: bold;
 
+			a {
+				display: block;
+				padding: 0 $gutter;
+				line-height: 55px;
+				height: 55px;
+				position: relative;
+				//border-right: 50px solid $green;
+				//margin-right: -50px;
+
+				//@include text-shadow(1px 1px 1px rgba(0,0,0,0.2));
+				
+				@include transition-property(all);
+				@include transition-duration(0.1s);
+				-webkit-transition-timing-function: ease-in-out;
+				
+				
+				span {
+					display: block;
+					width: 50px;
+					height: 100%;
+					background: $green;
+					position: absolute;
+					top: -5px;
+					right: -55px;
+					font-size: 11px;
+					color: #fff;
+					text-transform: uppercase;
+					font-style: normal;
+					text-align: center;
+					line-height: 45px;
+					height: 55px;
+					-webkit-backface-visibility: hidden;
+					@include background-clip(padding-box);
+					border: 5px solid rgba(255,255,255,0);
+
+					@include transition-property(all);
+					@include transition-duration(0.15s);
+					
+					-webkit-transition-timing-function: ease-in-out;
+
+					&:hover {
+						border-color: scale-lightness($green, 20);
+						//border-color: $green;
+					}
+
+					&:after {
+						content: "";
+						display: block;
+						width: 0px;
+						height: 0px;
+						border: 5px solid;
+	  					border-color: transparent transparent #fff transparent;
+	  					width: 0px;
+	  					height: 0px;
+	  					position: absolute;
+	  					top: 31px;
+	  					right: 21px;
+	  					color: #e8e8e8;
+
+	  
+					}
+
+					&.open {
+
+						&:after {
+							border-color: #fff transparent transparent transparent;
+							top: 36px;
+							//margin-top: -5px;
+						}
+					}
+
+				}
+
+				
+				
+				&:hover {
+					//text-decoration: underline;
+					//color: #fff;
+					background: $green;
+					color: #fff;
+		
+					span{
+						border-color: scale-lightness($green, 20);
+					}
+					
+
+				}
+				
+
+
+			}
 			em {
 				font-size: 11px;
 				display: inline-block;
@@ -271,8 +384,32 @@ section#portfolio {
 				margin-right: $gutter / 2;
 			}
 		}
+
+		.contents {
+			//display: none;
+			@include clearfix();
+
+			-webkit-backface-visibility: hidden;
+		}
 	}
 
+
+}
+
+div.panel {
+	@include clearfix();
+	//padding: $gutter;
+
+	&.align-left {
+
+		p, figure {
+			float: left;
+			margin: 0;
+			padding: 0;
+		}
+	}
+
+	//height: 0px;
 
 
 }

@@ -31,11 +31,12 @@
 							</figure>
 							<?php endif ?>
 
+							<?php echo '<h2><a href="">' . html($item->title()). ' <em>' . html($item->subtitle()) . '</em><span class="open">Open</span><span class="close">Close</span></a></h2>'; ?>
+
 							<div class="contents">
 								
 								<?php
-
-								echo '<h2>' . html($item->title()). ' <em>' . html($item->subtitle()) . '</em></h2>';
+								
 								echo kirbytext($item->text());
 
 								// are panels?
@@ -45,7 +46,7 @@
 									
 									foreach($panels AS $panel) {
 
-										$classes = array();
+										$classes = array('panel');
 
 										$classes[] = 'align-' . $panel->align();
 

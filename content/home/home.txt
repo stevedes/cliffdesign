@@ -3,7 +3,8 @@ Title: A refreshingly straight talking creative studio
 
 Text: 
 
+# Welcome
 
-## A refreshingly straight talking creative studio
+## A refreshingly straight talking creative studio.
 
-Providing specialist graphic design services to a hand-picked selection of thriving companies in and around Yorkshire.
+Providing specialist graphic [design services](#services) to a hand-picked selection of [thriving companies](#portfolio) in and around Yorkshire. [more](#about)
