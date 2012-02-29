@@ -208,6 +208,7 @@ footer#bottom {
 	background: #fff;
 
 	section {
+		min-height: 400px;
 		padding-top: $gutter * 2;
 		padding-right: 50px;
 		&#intro {

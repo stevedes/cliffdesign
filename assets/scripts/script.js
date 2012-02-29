@@ -211,6 +211,7 @@
 			}
 			$('#top a').removeClass('active');
 
+
 			if (direction === 'down') {
 				//$('#top a[href!="' + tar + '"]').removeClass('active');
 				$('#top a[href*="' + tar + '"]').addClass('active');
@@ -232,8 +233,8 @@
 
 		}, {
 			continuous: true,
-			onlyOnScroll: true,
-		   	offset: '0'  // middle of the page
+			onlyOnScroll: false,
+		   	offset: '1px'  // middle of the page
 		});
 		/*
 		$('#about, #portfolio, #services, #pipeline, #intro').waypoint(function(event, direction) {
