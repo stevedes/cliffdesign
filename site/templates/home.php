@@ -52,9 +52,6 @@
 										echo '</div>';
 									}
 								}
-									
-				
-								//echo kirbytext($item->text());
 
 								// are panels?
 								$panels = $item->children()->visible();
@@ -97,6 +94,16 @@
 			
 							</div>
 
+							<?php
+							// quote
+							if ($item->quote() && $item->cite()) {
+								echo '<blockquote>';
+								echo '<p>&#8220;' . $item->quote() . '&#8221;</p>';
+								echo '<p class="cite">' . $item->cite() . '</p>';
+								echo '</blockquote>';
+							}
+							?>
+							
 						</article>
 
 					<?php elseif($section->fragment() == 'services'): ?>

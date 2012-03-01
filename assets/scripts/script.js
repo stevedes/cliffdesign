@@ -109,10 +109,11 @@
 							    easing: transition,
 							    duration: '250ms'
 							}, function() {
-								//alert('done');
+								
+								// show close trigger
 								hidden_trigger.transition({rotateY: '0deg', duration: '0ms' }).show();
+								// hide open
 								trigger.hide();
-								//$(this).html('Open').addClass('open');
 							});
 
 						// end transition
@@ -166,7 +167,6 @@
 
 				}
 			);
-	
 
 		});
 
@@ -210,16 +210,6 @@
 				//$('#top a').removeClass('active');
 				$('#top a[href*="' + tar + '"]').parent().prev().find('a').addClass('active');
 			}
-
-			/*
-			if (direction === 'down') {
-				$('#top a[href*="' + tar + '"]').addClass('active');
-			}
-			else {
-
-				$('#top a[href*="' + tar + '"]').parent().prev().find('a').addClass('active');
-			}
-			*/
 
 		}, {
 			continuous: true,
@@ -313,21 +303,6 @@
 		
 		$('#portfolio article').folioDrop();
 
-		/*
-		$('#portfolio article').each(function() {
-
-			$(this).removeClass('open');
-
-			$(this).find('span.close').hide();
-
-			$(this).find('div.contents').css('height', '0px');
-			
-
-		});
-		*/
-
-		
-		
 		
 
 	});

@@ -15,8 +15,8 @@
 //	******************************************************************
 	
 // Vertical Rhythm
-$base-font-size: 16px;
-$base-line-height: 25px;
+$base-font-size: 14px;
+$base-line-height: 21px;
 
 
 // Debug Vertical Grid
@@ -215,37 +215,19 @@ footer#bottom {
 			padding-top: $gutter;
 
 			h2 {
-				font-size: ($base-font-size * 4.2);
+				font-size: ($base-font-size * 4.75);
 				padding: 0;
 				line-height: 1.1em;
 				font-weight: 300;
-				/*
-				background: $green;
-				color: #fff;
-				padding: 16px 20px 21px 19px;
-				@include text-shadow(-1px -1px 1px rgba(0,0,0,0.1));
-				border-top: 1px solid rgba(0,0,0,0.15);
-				border-left: 1px solid rgba(0,0,0,0.15);
-				*/
 				color: $green;
-
 			}
 
 			p {
-				//padding: rhythm(0.6) $gutter;
-				margin-top: rhythm(1);
-				//border-top: 1px solid #ccc;
-				//border-bottom: 1px solid #ccc;
-				font-size: ($base-font-size * 1.5);
-				line-height: 1.5em;
-				//font-style: italic;
 
-				/*
-				a {
-					font-style: normal;
-					font-size: $base-font-size;
-				}
-				*/
+				margin-top: rhythm(1);
+				font-size: ($base-font-size * 1.65);
+				line-height: 1.5em;
+
 				a {
 					padding: 1px 2px;
 					background: rgba(33,182,133,0.2);
@@ -301,12 +283,14 @@ section#portfolio {
 					top: -5px;
 					right: -55px;
 					font-size: 11px;
+					font-weight: bold;
 					color: #fff;
 					text-transform: uppercase;
 					font-style: normal;
 					text-align: center;
 					line-height: 45px;
 					height: 55px;
+					@include text-shadow(-1px 0px 1px rgba(0,0,0,0.2));
 					-webkit-backface-visibility: hidden;
 					@include background-clip(padding-box);
 					border: 5px solid rgba(255,255,255,0);
@@ -385,6 +369,17 @@ section#portfolio {
 			}
 		}
 
+		blockquote {
+			margin: 0 $gutter;
+			padding: ($gutter / 1.5) 0;
+			border-top: 1px solid #484c4c;
+			color: scale-lightness($white-text, -10);
+
+			p.cite {
+				color: #8c8f8f;
+			}
+		}
+
 		.contents {
 			@include clearfix();
 			//-webkit-transform-style:preserve-3d;
@@ -416,8 +411,6 @@ div.panel {
 	}
 
 	p {
-		font-size: 14px;
-		line-height: 1.5em;
 		color: $white-text;
 	}
 	&.align-left {
