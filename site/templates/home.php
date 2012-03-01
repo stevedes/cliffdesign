@@ -22,7 +22,7 @@
 					
 					<?php if($section->fragment() == 'portfolio'): ?>
 
-						<article>
+						<article class="open">
 							
 							<?php $cover = $item->images()->find('cover.jpg') ?>
 							<?php if ($cover) : ?>
@@ -36,8 +36,25 @@
 							<div class="contents">
 								
 								<?php
-								
-								echo kirbytext($item->text());
+
+								// tags?
+								if ($item->tags()) {
+									$tags = split(', ', $item->tags());
+	
+									if (count((array)$tags) > 0) {
+										echo '<div class="panel"><hr / >';
+										echo '<ul class="tags">';
+										foreach($tags AS $tag) {
+											echo '<li class="' . $tag . '">' . ucfirst($tag) . '</li>';
+										}
+
+										echo '</ul>';
+										echo '</div>';
+									}
+								}
+									
+				
+								//echo kirbytext($item->text());
 
 								// are panels?
 								$panels = $item->children()->visible();
@@ -55,7 +72,11 @@
 										}
 										$classes[] = 'images-' . $panel->images()->count();
 		
-										echo '<div class="' . implode(' ', $classes) . '">';
+										echo '<div class="' . implode(' ', $classes) . '"><hr / ><div class="panel_inner">';
+
+										if($panel->title()) {
+											echo '<h3>' . html($panel->title()) . '</h3>';
+										}
 
 										echo kirbytext($panel->text());
 
@@ -67,7 +88,7 @@
 
 										}
 
-										echo '</div>';
+										echo '</div></div>';
 									}
 
 								}

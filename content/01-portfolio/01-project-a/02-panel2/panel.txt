@@ -1,7 +1,0 @@
-Title: A panel title
-----
-Align: right
-----
-Text:
-
-Lorem ipsum

@@ -34,6 +34,7 @@ $sidebar-column: percentage(225 / 940);
 $font-family: "Helvetica Neue", sans-serif;
 $text-color: #000;
 $green: #21b685;
+$white-text: #e8e8e8;
 
 //	******************************************************************
 //	Base Styles
@@ -208,7 +209,6 @@ footer#bottom {
 	background: #fff;
 
 	section {
-		min-height: 400px;
 		padding-top: $gutter * 2;
 		padding-right: 50px;
 		&#intro {
@@ -218,6 +218,7 @@ footer#bottom {
 				font-size: ($base-font-size * 4.2);
 				padding: 0;
 				line-height: 1.1em;
+				font-weight: 300;
 				/*
 				background: $green;
 				color: #fff;
@@ -266,7 +267,7 @@ section#portfolio {
 	article {
 		background: #1a1f1f;
 		margin-bottom: $gutter;
-	
+		
 
 		h2 {
 			color: $green;
@@ -314,6 +315,7 @@ section#portfolio {
 					@include transition-duration(0.15s);
 					
 					-webkit-transition-timing-function: ease-in-out;
+					-webkit-transform-style:preserve-3d;
 
 					&:hover {
 						border-color: scale-lightness($green, 20);
@@ -375,22 +377,17 @@ section#portfolio {
 			}
 		}
 
-		div {
-			@include pie-clearfix;
-		}
-		div.align-left {
-			
-			p, figure {
-				float: left;
-				margin-right: $gutter / 2;
+		&.open {
+			h2 {
+				a {
+					color: $white-text;
+				}
 			}
 		}
 
 		.contents {
-			//display: none;
 			@include clearfix();
-
-			-webkit-backface-visibility: hidden;
+			//-webkit-transform-style:preserve-3d;
 		}
 	}
 
@@ -398,24 +395,142 @@ section#portfolio {
 }
 
 div.panel {
-	@include clearfix();
-	//padding: $gutter;
+	
+	.panel_inner {
+		@include clearfix();
+		padding: ($gutter / 2) 0 ($gutter * 1.5) 0;
+		margin: 0 ($gutter / 2) 0 $gutter;
+	}
 
+	hr {
+		padding: 0;
+		border-bottom: 1px solid #484c4c;
+		margin: 0 $gutter;
+	}
+
+	h3 {
+		padding: 0 0 10px 0;
+		line-height: 1.5em;
+		font-size: 17px;
+		color: $white-text;
+	}
+
+	p {
+		font-size: 14px;
+		line-height: 1.5em;
+		color: $white-text;
+	}
 	&.align-left {
-
 		p, figure {
 			float: left;
-			margin: 0;
+			margin: 0px;
 			padding: 0;
 		}
 	}
 
-	//height: 0px;
+
+	&.align-right {
+		p, figure {
+			float: right;
+			margin: 0px;
+			padding: 0;
+		}
+	}
+
+	// 1 Picture
+	&.images-1 {
+		p, figure {
+			width: 50%;
+			@include box-sizing(border-box);
+			padding-right: $gutter / 2;
+		}
+	}
+	// 1 Picture with no text
+	&.images-1.notext {
+		figure {
+			width: 100%;
+		}
+	}
+	// 1 picture, aligned right
+	&.images-1.align-right {
+		p {
+			padding: 0 $gutter / 2;
+		}
+	}
+
+
+	&.images-2 {
+		p, figure {
+			width: 33.3333333333333%;
+			@include box-sizing(border-box);
+		}
+		figure {
+			padding-right: $gutter / 2;
+		}
+		p {
+			
+		}
+	}
+
+	&.align-right.images-2 {
+		p {
+			padding: 0 $gutter / 2;
+		}
+	}
+
+	&.notext.images-2 {
+		figure {
+			width: 50%;
+			padding-right: $gutter / 2;
+		}
+	}
+
+	&.images-3 {
+		figure {
+			width: 33.3333333333333%;
+			@include box-sizing(border-box);
+			padding-right: $gutter / 2;
+		}
+	}
 
 
 }
 
 
+// Portfolio Tags
+$top-bg-pos: 10px;
+$tags: branding, print, website, app, signage, email, exhibition, marketing;
+
+ul.tags {
+	padding: 0;
+	margin: 0 $gutter;
+	list-style: none;
+	@include clearfix;
+	li {
+		float: left;
+		width: 12.5%;
+		margin: 0;
+		padding: 0;
+		height: 80px;
+		line-height: 120px;
+		background-image: url('/assets/images/icons.png');
+		background-repeat: no-repeat;
+		color: $white-text;
+		font-size: 10px;
+		text-transform: uppercase;
+		text-align: center;
+		$i: 0;
+		@each $type in $tags {
+		  &.#{$type} {
+		  	$px: -(($i * 80px) - 12px);
+		    background-position: center $px;
+		  }
+		  $i:$i+1;
+		}
+
+
+	}
+}
 
 div#scrollfix {
 

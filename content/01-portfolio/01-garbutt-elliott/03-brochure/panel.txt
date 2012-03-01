@@ -3,5 +3,3 @@ Title: A panel title
 Align: left
 ----
 Text:
-
-Lorem ipsum

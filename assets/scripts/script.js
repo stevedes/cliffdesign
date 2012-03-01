@@ -47,6 +47,130 @@
     /*
     	Custom Plugins
     */
+    $.prototype.folioDrop = function () {
+
+		return this.each(function () {
+
+			var container = $(this),
+				contents = container.find('div.contents'),
+				heading_link = container.find('h2 a'),
+				trigger = '',
+				hidden_trigger = '',
+				transition = 'cubic-bezier(.22,.79,.77,.99)',
+				is_open = false,
+				height_when_open = 0, // this needs calculating later on, due to flexible height images
+				current_height = 0,
+				time_to_open = 0;
+
+			// Init from no JS state
+			container
+				.removeClass('open')
+				.find('span.close').hide();
+			contents
+				.css('height', '0px');
+
+			// Bind open/close to heading link
+			heading_link.click(
+
+				function(e) {
+					
+					// prevent default click
+					e.preventDefault();
+
+					// check if item is open
+					is_open = container.hasClass('open');
+
+					if (is_open) {
+
+						trigger = $(this).find('span.close');
+						hidden_trigger = $(this).find('span.open');
+
+						// get height of contents;
+						height_when_open = contents.outerHeight(false);
+
+						// Set time for open/close animation, partly based on height
+						time_to_open = 200 + (height_when_open / 8);
+
+						// slide up
+						trigger
+							.show()
+							.transition({ y: height_when_open + 'px', easing: transition, duration: time_to_open, delay: 50, }, function() {
+								contents.transition({ height: '0px', easing: transition, duration: time_to_open, }, function() {
+									$.waypoints('refresh');
+
+									container.removeClass('open');
+								});
+							})
+							.transition({ y: '0px', easing: transition, duration: time_to_open, })
+							.transition({
+								delay: 50,
+							    perspective: '100px',
+							    rotateY: '180deg',
+							    easing: transition,
+							    duration: '250ms'
+							}, function() {
+								//alert('done');
+								hidden_trigger.transition({rotateY: '0deg', duration: '0ms' }).show();
+								trigger.hide();
+								//$(this).html('Open').addClass('open');
+							});
+
+						// end transition
+					}
+
+					else {
+
+						trigger = $(this).find('span.open');
+						hidden_trigger = $(this).find('span.close');
+
+						// Determine Height
+						// set height to auto
+						contents.css("height","auto");
+
+						// Store auto height
+						height_when_open = contents.height();
+
+						// Put height back
+						contents.css("height", '0px');
+
+						// Set time for open/close animation, partly based on height
+						time_to_open = 200 + (height_when_open / 8);
+
+						// Slide Down Transition
+						trigger
+							.show()
+							.transition({ y: '-55px', easing: transition, duration: '125ms', })
+							.transition({ y: '-54px', easing: transition, duration: '350ms', })
+							.transition({ y: '0px', easing: transition, duration: '50ms', }, function() {
+
+								// slide down contents
+								contents.transition({ height: height_when_open+'px', easing: transition, duration: time_to_open, }, function() {
+	
+									$.waypoints('refresh'); // refresh waypoints
+
+									container.addClass('open');
+								});
+							})
+							.transition({ y: '-5px', easing: transition, duration: '25ms', })
+							.transition({ y: '0px', easing: transition, duration: '15ms', })
+							.transition({ delay: 0, perspective: '100px', rotateY: '180deg', easing: transition, duration: '250ms', }, function() {
+
+								// show close trigger
+								hidden_trigger.transition({rotateY: '0deg', duration: '0ms' }).show();
+								// hide open
+								$(this).hide();
+							});
+
+						// end transition
+					}
+
+				}
+			);
+	
+
+		});
+
+	};
 
 
     /*
@@ -60,140 +184,6 @@
 		html = root.find('html');
 		head = html.find('head');
 		body = html.find('body');
-		/*
-		$('#portfolio article h2 a').hover(
-			function() {
-				$(this).find('span').addClass('swing');
-			},
-			function() {
-				$(this).find('span').removeClass('swing');
-			}
-		);
-		*/
-
-		$('#portfolio article').each(function() {
-
-			$(this).find('span.close').hide();
-
-			$(this).find('div.panel').each( function() {
-				$(this).css('height', '0px');
-			});
-
-		});
-
-		$('#portfolio article h2 a').click(
-			function(e) {
-				e.preventDefault();
-
-				var parent = $(this).parent().parent();
-				var contents = parent.find('div.contents');
-				var trigger = '';
-				var hidden_trigger = '';
-				var panels = contents.find('div.panel');
-				var transition = 'cubic-bezier(.22,.79,.77,.99)';
-
-
-				var is_open = parent.hasClass('open');
-
-				if (is_open) {
-
-					trigger = $(this).find('span.close');
-					hidden_trigger = $(this).find('span.open');
-
-					// slide up
-					// get height of contents;
-					var contents_height = contents.outerHeight(false);
-
-					trigger
-						.show()
-						.transition({ y: contents_height + 'px', easing: transition, duration: '250ms', })
-						.transition({ y: '0px', easing: transition, duration: '300ms', delay: 50})
-						.transition({
-							delay: 50,
-						    perspective: '100px',
-						    rotateY: '180deg',
-						    easing: transition,
-						    duration: '250ms'
-						}, function() {
-							//alert('done');
-							hidden_trigger.transition({rotateY: '0deg', duration: '0ms' }).show();
-							trigger.hide();
-							//$(this).html('Open').addClass('open');
-						});
-
-
-
-					
-					contents.delay(350).animate({ height: '0px' }, 300, function() {
-						
-						parent.removeClass('open');
-
-						panels.each( function() {
-							$(this).css('height', '0px');
-						});
-						
-
-					});
-
-
-					//contents.css('display','block');
-				}
-
-				else {
-
-					trigger = $(this).find('span.open');
-					hidden_trigger = $(this).find('span.close');
-
-					contents.css('height','auto');
-					// slide down
-					trigger
-						.show()
-						.transition({ y: '-55px', easing: transition, duration: '125ms', })
-						.transition({ y: '-54px', easing: transition, duration: '350ms', })
-						.transition({ y: '0px', easing: transition, duration: '50ms', })
-						.transition({ y: '-5px', easing: transition, duration: '25ms', })
-						.transition({ y: '0px', easing: transition, duration: '15ms', })
-						.transition({
-							delay: 0,
-						    perspective: '100px',
-						    rotateY: '180deg',
-						    easing: transition,
-						    duration: '250ms'
-						}, function() {
-	
-
-							parent.addClass('open');
-
-							hidden_trigger.transition({rotateY: '0deg', duration: '0ms' }).show();
-							$(this).hide();
-							//$(this).html('Open').addClass('open');
-						});
-
-
-					// open panels
-					var inc_delay = 400;
-					var i = 1;
-					panels.each(function() {
-
-						//$(this).hide();
-						
-						inc_delay = inc_delay + (150 * i);
-						//alert(inc_delay);
-
-						$(this).delay(inc_delay).transition({
-						    height: '300px',
-						    easing: 'cubic-bezier(.22,.79,.77,.99)',
-
-	    					duration: '200ms',
-						});
-
-						i++;
-		
-					});
-				}
-
-			}
-		);
 
 		// Sets an elem at the bottom of page to window height
 		// ensures page scroll works as expected
@@ -319,6 +309,26 @@
 		});
 	
 		if ( ! $(window).scrollTop() ) $(window).trigger ( 'hashchange' );
+
+		
+		$('#portfolio article').folioDrop();
+
+		/*
+		$('#portfolio article').each(function() {
+
+			$(this).removeClass('open');
+
+			$(this).find('span.close').hide();
+
+			$(this).find('div.contents').css('height', '0px');
+			
+
+		});
+		*/
+
+		
+		
+		
 
 	});
 
