@@ -15,8 +15,8 @@
 //	******************************************************************
 	
 // Vertical Rhythm
-$base-font-size: 14px;
-$base-line-height: 21px;
+$base-font-size: 16px;
+$base-line-height: 25px;
 
 
 // Debug Vertical Grid
@@ -197,10 +197,60 @@ header#top {
 footer#bottom {
 	position: fixed;
 	//width: $sidebar-column;
-	width: 224px;
+	width: 185px;
 	bottom: 0px;
 	left: 0px;
+	padding: ($gutter) $gutter $gutter $gutter;
+	//background: url('/assets/images/contact_shadow.png') 50% 0px no-repeat;
+	h2 {
+		color: #8c8f8f;
+		border-bottom: 1px solid #090b0b;
+		padding: 0 0 rhythm(0.25) 0;
+		font-size: 16px;
+	}
+	dl {
+		border-top: 1px solid #303535;
+		padding: ($gutter / 2) 0;
+		dt {
+			display: block;
+		 	float: left;
+			width: 43px;
+			text-indent: -9999px;
+			padding: 0;
+			background-image: url('/assets/images/contact_icons.png');
+			background-repeat: no-repeat;
+			min-height: 50px;
+			clear: left;
+			&.post { background-position: 0px 12px; }
+			&.phone { background-position: 0px -88px; }
+			&.email { background-position: 0px -189px; }
+			&.enquiry { background-position: 0px -290px; }
+		}
+		dd {
+			display: block;
+			width: 142px;
+			float: left;
+			padding: 0;
+			padding: ($gutter / 2) 0;
+			//text-transform: uppercase;
+			font-size: 13px;
+			line-height: 1.5em;
+			//font-weight: bold;
+			color: scale-lightness($white-text, -30);
+
+			&.phone {
+				font-size: 16px;
+
+			}
+
+			a {
+				color: $green;
+			}
+		}
+	}
 }
+
+
 
 #content {
 	margin-left: 225px;
@@ -215,7 +265,7 @@ footer#bottom {
 			padding-top: $gutter;
 
 			h2 {
-				font-size: ($base-font-size * 4.75);
+				font-size: ($base-font-size * 4.2);
 				padding: 0;
 				line-height: 1.1em;
 				font-weight: 300;
@@ -225,7 +275,7 @@ footer#bottom {
 			p {
 
 				margin-top: rhythm(1);
-				font-size: ($base-font-size * 1.65);
+				font-size: ($base-font-size * 1.5);
 				line-height: 1.5em;
 
 				a {
@@ -250,6 +300,9 @@ section#portfolio {
 		background: #1a1f1f;
 		margin-bottom: $gutter;
 		
+		&:last-child {
+			margin-bottom: 0;
+		}
 
 		h2 {
 			color: $green;
@@ -374,7 +427,8 @@ section#portfolio {
 			padding: ($gutter / 1.5) 0;
 			border-top: 1px solid #484c4c;
 			color: scale-lightness($white-text, -10);
-
+			font-size: 14px;
+			line-height: 1.5em;
 			p.cite {
 				color: #8c8f8f;
 			}
@@ -412,6 +466,8 @@ div.panel {
 
 	p {
 		color: $white-text;
+		font-size: 14px;
+		line-height: 21px;
 	}
 	&.align-left {
 		p, figure {

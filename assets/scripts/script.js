@@ -94,7 +94,8 @@
 						// slide up
 						trigger
 							.show()
-							.transition({ y: height_when_open + 'px', easing: transition, duration: time_to_open, delay: 50, }, function() {
+							.transition({ y: '-5px', easing: 'ease-in', duration: '50ms', })
+							.transition({ y: height_when_open + 'px', easing: transition, duration: time_to_open, delay: 150, }, function() {
 								contents.transition({ height: '0px', easing: transition, duration: time_to_open, }, function() {
 									$.waypoints('refresh');
 
@@ -287,7 +288,7 @@
 					distance = target_top - current_position;
 				}
 
-				var time_to_scroll = 150 + ((distance / 1000) * 150);
+				var time_to_scroll = 250 + ((distance / 1000) * 50);
 
 				$.scrollTo(target_top, time_to_scroll, { easing: $.bez([.14,.32,.79,1.04]) });
 

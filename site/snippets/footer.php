@@ -1,11 +1,12 @@
 		<footer id="bottom">
+			<h2>Contact</h2>
 			<dl>
-				<dt>Post:</dt>
-				<dd><?php echo $site->address() ?></dd>
-				<dt>Phone:</dt>
-				<dd><?php echo $site->phone() ?></dd>
-				<dt>Email:</dt>
-				<dd><?php echo $site->email() ?></dd>
+				<dt class="post">Post:</dt>
+				<dd><?php echo $site->address() ?>.  <a href="">Google Map</a></dd>
+				<dt class="phone">Phone:</dt>
+				<dd class="phone"><?php echo $site->phone() ?></dd>
+				<dt class="email">Email:</dt>
+				<dd><a href=""><?php echo $site->email() ?></a></dd>
 			</dl>
 		</footer>
 
