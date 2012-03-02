@@ -191,7 +191,7 @@
 		body.find('#scrollfix').height($(window).height());
 
 		// Waypoints
-		
+
 		$('#about, #portfolio, #services, #pipeline, #intro').waypoint(function(event, direction) {
 
 			
@@ -215,7 +215,7 @@
 
 		}, {
 			continuous: true,
-			onlyOnScroll: true,
+			onlyOnScroll: false,
 		   	offset: '1px'  // middle of the page
 		});
 
@@ -280,7 +280,11 @@
 
 				var time_to_scroll = 250 + ((distance / 1000) * 50);
 
-				$.scrollTo(target_top, time_to_scroll, { easing: $.bez([.14,.32,.79,1.04]) });
+				//$.scrollTo(target_top, time_to_scroll, { easing: $.bez([.14,.32,.79,1.04]) });
+
+				
+
+				$.scrollTo(target_top, time_to_scroll, { easing: $.bez([.65, 0, .58, 1]) });
 
 				// add active class to nav
 				//$('#top a[href*="' + target + '"]').addClass('active');
