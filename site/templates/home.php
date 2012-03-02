@@ -126,7 +126,15 @@
 
 					<?php elseif($section->fragment() == 'services'): ?>
 						
+						
+
 						<article class="<?php echo $item->fragment() ?>">
+							<?php if($item->hasImages()) : ?> 
+								<figure>
+									<img src="<?php echo $item->images()->first()->url() ?>" />
+								</figure>
+							<? endif ?>
+						
 							<h2><?php echo html($item->title()) ?></h2>
 							<?php echo kirbytext($item->text()) ?>
 						</article>

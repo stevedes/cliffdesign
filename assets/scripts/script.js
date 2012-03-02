@@ -191,6 +191,7 @@
 		body.find('#scrollfix').height($(window).height());
 
 		// Waypoints
+		
 		$('#about, #portfolio, #services, #pipeline, #intro').waypoint(function(event, direction) {
 
 			
@@ -214,20 +215,9 @@
 
 		}, {
 			continuous: true,
-			onlyOnScroll: false,
+			onlyOnScroll: true,
 		   	offset: '1px'  // middle of the page
 		});
-		/*
-		$('#about, #portfolio, #services, #pipeline, #intro').waypoint(function(event, direction) {
-			if (direction === 'up') {
-				$('#top a[href!="' + tar + '"]').removeClass('active');
-				var tar = $(this).attr('id');
-				$('#top a[href*="' + tar + '"]').addClass('active');
-			}
-		}, {
-		   offset: 'bottom-in-view'
-		});
-		*/
 
 		$('a[href*=#]').click ( function(e) {
 
@@ -299,7 +289,7 @@
 
 		});
 	
-		if ( ! $(window).scrollTop() ) $(window).trigger ( 'hashchange' );
+		//if ( ! $(window).scrollTop() ) $(window).trigger ( 'hashchange' );
 
 		
 		$('#portfolio article').folioDrop();

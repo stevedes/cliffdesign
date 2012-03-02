@@ -1,7 +1,7 @@
 Title: Brand Creation
 ----
-Fragment: brands
+Fragment: branding
 ----
 Text:
 
-Lorem ipsum
+We create practical visual identities and brands, either from scratch or just a brush up, it'll still look great.
