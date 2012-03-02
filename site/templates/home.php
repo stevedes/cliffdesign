@@ -12,7 +12,25 @@
 
 		<?php $items = $section->children()->visible(); ?>
 		
+		<?php $about_pic = $section->images()->find('about.jpg') ?>
+
 		<section id="<?php echo $section->fragment() ?>">
+
+			<h1><?php echo html($section->title()) ?></h1>
+
+			<?php if($section->fragment() == 'about'): ?>
+
+				<?php if ($site->linkedin()) : ?>
+					<a class="linkedin" href="<?php echo $site->linkedin() ?>">Linked In</a>
+				<?php endif ?>
+
+				<?php if ($about_pic) : ?>
+				<figure>
+					<img src="<?php echo $about_pic->url() ?>" />
+				</figure>
+				<?php endif ?>
+
+			<?php endif ?>
 
 			<?php echo kirbytext($section->text()) ?>
 
@@ -107,6 +125,13 @@
 						</article>
 
 					<?php elseif($section->fragment() == 'services'): ?>
+						
+						<article class="<?php echo $item->fragment() ?>">
+							<h2><?php echo html($item->title()) ?></h2>
+							<?php echo kirbytext($item->text()) ?>
+						</article>
+
+					<?php elseif($section->fragment() == 'pipeline'): ?>
 						
 						<article class="<?php echo $item->fragment() ?>">
 							<h2><?php echo html($item->title()) ?></h2>

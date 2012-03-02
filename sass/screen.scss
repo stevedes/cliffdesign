@@ -52,7 +52,7 @@ body {
 	font-family: $font-family;
 	color: $text-color;
 
-	background: url('/assets/images/sidebar.png') 0px 0px repeat-y;
+	background: #e8e8e8 url('/assets/images/sidebar.png') 0px 0px repeat-y;
 
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%; 
@@ -256,11 +256,12 @@ footer#bottom {
 	margin-left: 225px;
 	float: left;
 	padding: $gutter $gutter $gutter $gutter;
-	background: #fff;
+	background: #e8e8e8;
 
 	section {
 		padding-top: $gutter * 2;
 		padding-right: 50px;
+		@include pie-clearfix;
 		&#intro {
 			padding-top: $gutter;
 
@@ -287,6 +288,33 @@ footer#bottom {
 
 			}
 		}
+
+		&#about {
+			position: relative;
+			a.linkedin {
+				display: block;
+				position: absolute;
+				top: 48px;
+				right: 50px;
+				width: 80px;
+				height: 20px;
+				text-indent: 100%;
+				white-space: nowrap;
+				overflow: hidden;
+				background: url('/assets/images/linkedin.png') 0px 0px no-repeat;
+
+				&:hover {
+					background-position: 0px -20px;
+				}
+			}
+			figure {
+				width: 33.33333333%;
+				float: right;
+				margin-left: ($gutter / 1.5);
+			}
+
+		}
+
 	}
 }
 
@@ -355,8 +383,9 @@ section#portfolio {
 					-webkit-transform-style:preserve-3d;
 
 					&:hover {
-						border-color: scale-lightness($green, 20);
+						//border-color: scale-lightness($green, 20);
 						//border-color: $green;
+						background: $green;
 					}
 
 					&:after {
@@ -385,6 +414,10 @@ section#portfolio {
 						}
 					}
 
+					&:active {
+						background: #fff;
+					}
+
 				}
 
 				
@@ -392,11 +425,13 @@ section#portfolio {
 				&:hover {
 					//text-decoration: underline;
 					//color: #fff;
-					background: $green;
-					color: #fff;
+					background: #000;
+					color: scale-saturation($green, 50);
+					//color: #fff;
 		
 					span{
-						border-color: scale-lightness($green, 20);
+						//border-color: scale-lightness($green, 20);
+						border-color: transparent;
 					}
 					
 
@@ -426,7 +461,7 @@ section#portfolio {
 			margin: 0 $gutter;
 			padding: ($gutter / 1.5) 0;
 			border-top: 1px solid #484c4c;
-			color: scale-lightness($white-text, -10);
+			color: scale-lightness($white-text, -15);
 			font-size: 14px;
 			line-height: 1.5em;
 			p.cite {
@@ -517,7 +552,7 @@ div.panel {
 			padding-right: $gutter / 2;
 		}
 		p {
-			
+			padding-right: $gutter;
 		}
 	}
 

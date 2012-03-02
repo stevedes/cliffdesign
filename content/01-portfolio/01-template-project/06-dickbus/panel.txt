@@ -1,6 +1,6 @@
 Title: Dick Bus
 ----
-Align: right
+Align: left
 ----
 Text:
 

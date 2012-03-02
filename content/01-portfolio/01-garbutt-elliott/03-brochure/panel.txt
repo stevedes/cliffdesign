@@ -1,5 +1,0 @@
-Title: A panel title
-----
-Align: left
-----
-Text:

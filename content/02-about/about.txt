@@ -4,8 +4,8 @@ Fragment: about
 ----
 Text:
 
-# About
+Cliff Design is the friendly creative studio of David Cliff. Based in the heart of York, we provide specialist graphic design services to a hand-picked selection of thriving companies in and around Yorkshire.
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+You'll also be pleased to know that we're refreshingly straight talking, which means there's no designer egos to satisfy, no corporate waffle to wade through, just a great studio dedicated to customer satisfaction.
 
-Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a.
+**bold text** *italic text* [Link](#welcome)
