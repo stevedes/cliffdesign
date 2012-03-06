@@ -174,6 +174,43 @@
 	};
 
 
+	$.prototype.addWaypoints = function () {
+
+		return this.each(function () {
+
+			var contentBlock = $($(this).attr('href')),
+				tar = contentBlock.attr('id');
+
+			contentBlock.waypoint(function(event, direction) {
+
+				// if currently active, stop this nightmare
+				if ($('#top a[href*="' + tar + '"]').hasClass('active') && direction === 'down') {
+					return true;
+				}
+				$('#top a').removeClass('active');
+
+
+				if (direction === 'down') {
+					//$('#top a[href!="' + tar + '"]').removeClass('active');
+					$('#top a[href*="' + tar + '"]').addClass('active');
+				}
+				else {
+					//$('#top a').removeClass('active');
+					$('#top a[href*="' + tar + '"]').parent().prev().find('a').addClass('active');
+				}
+
+			}, {
+				continuous: true,
+				onlyOnScroll: false,
+			   	offset: '1px'  // middle of the page
+			});
+
+			//contentBlock.hide();
+
+		});
+
+	};
+
     /*
     	Make Rocket Go Now!
     */
@@ -191,33 +228,8 @@
 		body.find('#scrollfix').height($(window).height());
 
 		// Waypoints
+		$('#navigation a').addWaypoints();
 
-		$('#about, #portfolio, #services, #pipeline, #intro').waypoint(function(event, direction) {
-
-			
-			var tar = $(this).attr('id');
-
-			// if currently active, stop this nightmare
-			if ($('#top a[href*="' + tar + '"]').hasClass('active') && direction === 'down') {
-				return true;
-			}
-			$('#top a').removeClass('active');
-
-
-			if (direction === 'down') {
-				//$('#top a[href!="' + tar + '"]').removeClass('active');
-				$('#top a[href*="' + tar + '"]').addClass('active');
-			}
-			else {
-				//$('#top a').removeClass('active');
-				$('#top a[href*="' + tar + '"]').parent().prev().find('a').addClass('active');
-			}
-
-		}, {
-			continuous: true,
-			onlyOnScroll: false,
-		   	offset: '1px'  // middle of the page
-		});
 
 		$('a[href*=#]').click ( function(e) {
 
@@ -259,9 +271,6 @@
 
 			var $this = location, $this_hash = scrollto ( location );
 
-			// rmoeve any active classes
-			//$('#top a').removeClass('active');
-
 		    if ( $this_hash.length ) {
 
 				var target = location.hash;
@@ -280,26 +289,19 @@
 
 				var time_to_scroll = 250 + ((distance / 1000) * 50);
 
-				//$.scrollTo(target_top, time_to_scroll, { easing: $.bez([.14,.32,.79,1.04]) });
-
-				
 
 				$.scrollTo(target_top, time_to_scroll, { easing: $.bez([.65, 0, .58, 1]) });
-
-				// add active class to nav
-				//$('#top a[href*="' + target + '"]').addClass('active');
 
 			}
 
 		});
 	
 		//if ( ! $(window).scrollTop() ) $(window).trigger ( 'hashchange' );
-
 		
+		// Dropdown portfolio items
 		$('#portfolio article').folioDrop();
 
 		
-
 	});
 
 
