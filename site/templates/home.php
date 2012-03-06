@@ -19,7 +19,6 @@
 			<h1><?php echo html($section->title()) ?></h1>
 
 			<?php if($section->fragment() == 'about'): ?>
-
 				<?php if ($site->linkedin()) : ?>
 					<a class="linkedin" href="<?php echo $site->linkedin() ?>">Linked In</a>
 				<?php endif ?>
@@ -29,10 +28,14 @@
 					<img src="<?php echo $about_pic->url() ?>" />
 				</figure>
 				<?php endif ?>
-
 			<?php endif ?>
 
 			<?php echo kirbytext($section->text()) ?>
+
+			<?php if($section->fragment() == 'enquiries'): ?>
+				<?php snippet('enquiry') ?>
+			<?php endif ?>
+
 
 			<?php if($items && $items->count()): ?>
 				

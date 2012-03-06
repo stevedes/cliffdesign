@@ -6,6 +6,9 @@
 form.default {
     @include pie-clearfix;
     padding: $gutter;
+    background: #1a1f1f;
+    color: $white-text;
+    margin-top: $gutter;
     fieldset {
         
         p {
@@ -61,7 +64,6 @@ form.default {
         padding: rhythm(0.35);
         margin: 0 0 0 0;
         width: 100%;
-        background: #fff;
 
         @include box-shadow(rgba(0,0,0,0.05) 0px 0px 5px);
 
