@@ -67,17 +67,16 @@ body {
 @import
 	"tools",
 	"typography",
-	"forms",
-	"animations";
+	"forms";
 
 
 //	******************************************************************
 //	Main Layout
 //	******************************************************************
-
-#welcome {
+#welcome { // this is actually the wrapper element, just easier to have at top for hash nav
 	max-width: $max-width;
 	position: relative;
+	@include clearfix;
 }
 
 
@@ -115,15 +114,13 @@ header#top {
 				background: url('/assets/images/logo.png') 0px -110px no-repeat;
 				opacity: 0;
 
-				@include transition-property(opacity);
-  				@include transition-duration(0.5s);
-  				-webkit-transition-timing-function: ease-in;  
+				//@include transition-property(opacity);
+  				//@include transition-duration(0.5s);
+  				//-webkit-transition-timing-function: ease-in;  
 
   				&:hover {
   					opacity: 1;
   				}
-
-
 			}
 		}
 	}
@@ -156,7 +153,6 @@ header#top {
 			-webkit-transition-timing-function: ease-in-out;
 
 			&:hover {
-				
 				background: rgba(33,182,133,0.8);
 				color: #fff;
 				border-top-color: rgba(13,74,54,0.7);
@@ -199,12 +195,10 @@ header#top {
 
 footer#bottom {
 	position: fixed;
-	//width: $sidebar-column;
 	width: 185px;
 	bottom: 0px;
 	left: 0px;
-	padding: ($gutter) $gutter $gutter $gutter;
-	//background: url('/assets/images/contact_shadow.png') 50% 0px no-repeat;
+	padding: $gutter;
 	h2 {
 		color: #8c8f8f;
 		border-bottom: 1px solid #090b0b;
@@ -243,7 +237,6 @@ footer#bottom {
 
 			&.phone {
 				font-size: 16px;
-
 			}
 
 			a {
@@ -257,14 +250,17 @@ footer#bottom {
 
 #content {
 	margin-left: 225px;
-	float: left;
+	//float: left;
 	padding: $gutter $gutter $gutter $gutter;
-	background: #e8e8e8;
+	
 
 	section {
 		padding-top: $gutter * 2;
 		padding-right: 50px;
 		@include pie-clearfix;
+
+		max-width: 715px; // firefox chokes without this, dunno why!
+
 		&#intro {
 			padding-top: $gutter;
 
@@ -277,7 +273,6 @@ footer#bottom {
 			}
 
 			p {
-
 				margin-top: rhythm(1);
 				font-size: ($base-font-size * 1.5);
 				line-height: 1.5em;
@@ -287,6 +282,14 @@ footer#bottom {
 					background: rgba(33,182,133,0.2);
 					font-weight: normal;
 					color: $text-color;
+
+					@include transition-property(background);
+					@include transition-duration(0.2s);
+					-webkit-transition-timing-function: ease-in-out;
+
+					&:hover {
+						background: rgba(33,182,133,0.4);
+					}
 				}
 
 			}
@@ -315,11 +318,10 @@ footer#bottom {
 				float: right;
 				margin-left: ($gutter / 1.5);
 			}
-
 		}
-
 	}
 }
+
 
 section#services {
 
@@ -371,13 +373,11 @@ section#services {
 		p {
 			padding-top: 0;
 		}
-
 	}
-	
 }
 
 
-section#portfolio {
+#portfolio {
 
 	//padding-right: 0;
 	article {
@@ -390,7 +390,6 @@ section#portfolio {
 
 		h2 {
 			color: $green;
-
 			padding: 0;
 			margin: 0;
 			font-weight: bold;
@@ -401,15 +400,10 @@ section#portfolio {
 				line-height: 55px;
 				height: 55px;
 				position: relative;
-				//border-right: 50px solid $green;
-				//margin-right: -50px;
-
-				//@include text-shadow(1px 1px 1px rgba(0,0,0,0.2));
 				
 				@include transition-property(all);
 				@include transition-duration(0.1s);
 				-webkit-transition-timing-function: ease-in-out;
-				
 				
 				span {
 					display: block;
@@ -439,8 +433,6 @@ section#portfolio {
 					-webkit-transform-style:preserve-3d;
 
 					&:hover {
-						//border-color: scale-lightness($green, 20);
-						//border-color: $green;
 						background: $green;
 					}
 
@@ -457,44 +449,29 @@ section#portfolio {
 	  					top: 31px;
 	  					right: 21px;
 	  					color: #e8e8e8;
-
-	  
 					}
 
 					&.open {
-
 						&:after {
 							border-color: #fff transparent transparent transparent;
 							top: 36px;
-							//margin-top: -5px;
 						}
 					}
-
 					&:active {
 						background: #fff;
 					}
-
 				}
 
-				
-				
+
 				&:hover {
-					//text-decoration: underline;
-					//color: #fff;
 					background: #000;
 					color: scale-saturation($green, 50);
-					//color: #fff;
-		
-					span{
-						//border-color: scale-lightness($green, 20);
+
+					span {
 						border-color: transparent;
 					}
-					
-
 				}
-				
-
-
+			
 			}
 			em {
 				font-size: 11px;
@@ -530,22 +507,58 @@ section#portfolio {
 			//-webkit-transform-style:preserve-3d;
 		}
 	}
-
-
 }
 
+#pipeline {
+	article {
+		background: rgba(0,0,0,0.05);
+		border: 1px solid;
+		border-bottom: none;
+		border-color: rgba(0,0,0,0.05) rgba(255,255,255,0.7) rgba(255,255,255,0.7) rgba(0,0,0,0.05);
+
+
+		&:last-child {
+			border-bottom: 1px solid rgba(255,255,255,0.7);
+		}
+		
+	}
+
+	article + article {
+		border-top: none;
+		.panel {
+			hr {
+				display: block;
+			}
+		}
+	}
+}
 div.panel {
 	
 	.panel_inner {
 		@include clearfix();
 		padding: ($gutter / 2) 0 ($gutter * 1.5) 0;
 		margin: 0 ($gutter / 2) 0 $gutter;
+
+		#pipeline & {
+			padding: $gutter 0;
+		}
 	}
+
+
 
 	hr {
 		padding: 0;
 		border-bottom: 1px solid #484c4c;
+		
 		margin: 0 $gutter;
+
+		#pipeline & {
+			height: 1px;
+			border-bottom: none;
+			border-top: 1px solid rgba(0,0,0,0.1);
+			background: rgba(255,255,255,0.4);
+			display: none;
+		}
 	}
 
 	h3 {
@@ -553,12 +566,19 @@ div.panel {
 		line-height: 1.5em;
 		font-size: 17px;
 		color: $white-text;
+		#pipeline & {
+			color: $text-color;
+		}
 	}
 
 	p {
 		color: $white-text;
 		font-size: 14px;
 		line-height: 21px;
+
+		#pipeline & {
+			color: $text-color;
+		}
 	}
 	&.align-left {
 		p, figure {
@@ -581,7 +601,7 @@ div.panel {
 	&.images-1 {
 		p, figure {
 			width: 50%;
-			@include box-sizing(border-box);
+			@include border-box();
 			padding-right: $gutter / 2;
 		}
 	}
@@ -602,7 +622,7 @@ div.panel {
 	&.images-2 {
 		p, figure {
 			width: 33.3333333333333%;
-			@include box-sizing(border-box);
+			@include border-box();
 		}
 		figure {
 			padding-right: $gutter / 2;
@@ -628,7 +648,7 @@ div.panel {
 	&.images-3 {
 		figure {
 			width: 33.3333333333333%;
-			@include box-sizing(border-box);
+			@include border-box();
 			padding-right: $gutter / 2;
 		}
 	}

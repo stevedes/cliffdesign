@@ -1,6 +1,6 @@
-Title: Enquiries
+Title: Get in Touch
 ----
-Fragment: enquiries
+Fragment: contact
 ----
 Text:
 

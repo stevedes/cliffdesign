@@ -3,7 +3,6 @@
 <div id="content" role="main">
 
 	<section id="intro">
-		
 		<?php echo kirbytext($page->text()) ?>
 	</section>
 
@@ -32,7 +31,7 @@
 
 			<?php echo kirbytext($section->text()) ?>
 
-			<?php if($section->fragment() == 'enquiries'): ?>
+			<?php if($section->fragment() == 'contact'): ?>
 				<?php snippet('enquiry') ?>
 			<?php endif ?>
 
@@ -128,8 +127,6 @@
 						</article>
 
 					<?php elseif($section->fragment() == 'services'): ?>
-						
-						
 
 						<article class="<?php echo $item->fragment() ?>">
 							<?php if($item->hasImages()) : ?> 
@@ -145,8 +142,34 @@
 					<?php elseif($section->fragment() == 'pipeline'): ?>
 						
 						<article class="<?php echo $item->fragment() ?>">
-							<h2><?php echo html($item->title()) ?></h2>
-							<?php echo kirbytext($item->text()) ?>
+							<?php
+							$classes = array('panel');
+
+							$classes[] = 'align-' . $item->align();
+
+							if ($item->text() == '') {
+								$classes[] = 'notext';
+							}
+							$classes[] = 'images-' . $item->images()->count();
+
+							echo '<div class="' . implode(' ', $classes) . '"><hr / ><div class="panel_inner">';
+
+							if($item->title()) {
+								echo '<h3>' . html($item->title()) . '</h3>';
+							}
+
+							echo kirbytext($item->text());
+
+							if($item->hasImages()) {
+
+								foreach($item->images() as $image) {
+									echo '<figure><img src="' . $image->url() . '" /></figure>';
+								}
+
+							}
+
+							echo '</div></div>';
+							?>
 						</article>
 
 					<?php endif; ?>

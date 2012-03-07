@@ -53,6 +53,7 @@
 
 			var container = $(this),
 				contents = container.find('div.contents'),
+				last_panel = contents.find('div.panel:last-child'),
 				heading_link = container.find('h2 a'),
 				trigger = '',
 				hidden_trigger = '',
@@ -118,6 +119,9 @@
 							});
 
 						// end transition
+
+						
+
 					}
 
 					else {
@@ -164,6 +168,30 @@
 							});
 
 						// end transition
+
+						// add waypoint to last panel
+						// this would be sweet, but proper difficult
+						/*
+						last_panel.waypoint(function(event, direction) {
+
+
+							if (direction === 'down') {
+								
+								// slide trigger down
+								height_when_open = contents.outerHeight(false);
+
+								hidden_trigger.transition({ y: height_when_open + 'px', easing: transition, duration: 200, delay: 150, });
+		
+								//alert('test');
+							}
+
+						}, {
+							continuous: false,
+							onlyOnScroll: true,
+						   	offset: '1px'  // middle of the page
+						});
+						*/
+
 					}
 
 				}
@@ -223,12 +251,23 @@
 		head = html.find('head');
 		body = html.find('body');
 
-		// Sets an elem at the bottom of page to window height
-		// ensures page scroll works as expected
-		body.find('#scrollfix').height($(window).height());
+		
 
 		// Waypoints
 		$('#navigation a').addWaypoints();
+
+
+		// Set height of last section to at least window height
+		var last_nav = body.find('#navigation li:last-child a').attr('href'); // last nav
+
+		var last_section_height = $(last_nav).height();
+		var window_height = $(window).height();
+
+		if (window_height > last_section_height) {
+
+			body.find('#scrollfix').height((window_height - last_section_height) - 60);
+		}
+
 
 
 		$('a[href*=#]').click ( function(e) {
@@ -289,6 +328,11 @@
 
 				var time_to_scroll = 250 + ((distance / 1000) * 50);
 
+				
+				//if (target)
+				// Sets an elem at the bottom of page to window height
+				// ensures page scroll works as expected
+				//body.find('#scrollfix').height($(window).height());
 
 				$.scrollTo(target_top, time_to_scroll, { easing: $.bez([.65, 0, .58, 1]) });
 
