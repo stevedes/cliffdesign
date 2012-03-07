@@ -147,7 +147,7 @@ header#top {
 			border-bottom: 1px solid rgba(255,255,255,0);
 			border-top: 1px solid rgba(255,255,255,0);
 			position: relative;
-			@include transition-property(all);
+			@include transition-property("background, border-color");
   			
 			@include transition-duration(0.2s);
 			-webkit-transition-timing-function: ease-in-out;
