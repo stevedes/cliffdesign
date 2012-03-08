@@ -32,6 +32,22 @@
 			<?php echo kirbytext($section->text()) ?>
 
 			<?php if($section->fragment() == 'contact'): ?>
+
+				<ul class="contacts">
+					<li class="post">
+	
+						<a href="">1-5 Shambles, <br />York, <br />YO1 7LZ.</a>
+					</li>
+					<li class="phone">
+
+						<strong><?php echo $site->phone() ?></strong>
+					</li>
+					<li class="email">
+
+						<strong><a href=""><?php echo $site->email() ?></a></strong>
+					</li>
+				</ul>
+
 				<?php snippet('enquiry') ?>
 			<?php endif ?>
 

@@ -147,9 +147,9 @@ header#top {
 			border-bottom: 1px solid rgba(255,255,255,0);
 			border-top: 1px solid rgba(255,255,255,0);
 			position: relative;
-			@include transition-property("background, border-color");
-  			
-			@include transition-duration(0.2s);
+			
+			@include transition-property("width");
+			@include transition-duration(0.5s);
 			-webkit-transition-timing-function: ease-in-out;
 
 			&:hover {
@@ -430,7 +430,7 @@ section#services {
 					@include transition-duration(0.15s);
 					
 					display: none;
-					
+
 					-webkit-transition-timing-function: ease-in-out;
 					-webkit-transform-style:preserve-3d;
 
@@ -695,6 +695,40 @@ div#scrollfix {
 
 }
 
+ul.contacts {
+	@include clearfix;
+	list-style: none;
+	margin: $gutter 0 0 0;
+	padding: 0 $gutter;
+	background: rgba(0,0,0,0.05);
+		border: 1px solid;
 
+		border-color: rgba(0,0,0,0.05) rgba(255,255,255,0.7) rgba(255,255,255,0.7) rgba(0,0,0,0.05);
+
+
+	li {
+		@include border-box;
+		width: 33.333333333%;
+		float: left;
+		padding: $gutter $gutter $gutter ($gutter * 2);
+		//border-top: 1px solid rgba(255,255,255,0.4);
+		background-image: url('/assets/images/contact_icons_black.png');
+		background-repeat: no-repeat;
+		&.post {
+			background-position: 0px 25px;
+		}
+		&.phone {
+			background-position: 0px -75px;
+			font-size: 18px;
+		}
+		&.email {
+			background-position: 0px -175px;
+		}
+		strong {
+			display: block;
+			font-weight: normal;
+		}
+	}
+}
 
 

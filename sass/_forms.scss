@@ -5,7 +5,7 @@
 
 form.default {
     @include pie-clearfix;
-    padding: $gutter;
+    padding: $gutter $gutter ($gutter * 1.25) $gutter;
     background: #1a1f1f;
 
     //@include background-image(linear-gradient(scale-lightness(#1a1f1f, -20), #1a1f1f));
@@ -21,26 +21,34 @@ form.default {
             height: 1px;
             background: rgba(0,0,0,0.5);
             padding: 0;
-            margin-bottom: 20px;
+            margin: 20px 0;
             border-bottom: 1px solid rgba(255,255,255,0.13);
+            width: 100%;
+            float: left;
         }
         legend {
             //color: $green;
-            padding-bottom: $gutter;
+            margin-bottom: $gutter;
             //font-size: 13px;
             //text-transform: uppercase;
             //font-weight: bold;
             //margin-left: 110px;
             //padding-left: 60px;
             display: block;
-            width: 100%;
-            @include border-box();
             //line-height: 40px;
             font-size: 18px;
-            line-height: 18px;
+            line-height: 20px;
+            overflow: hidden;
             //background: url('/assets/images/face.png') 0px 0px no-repeat;
             //color: #A2A2A2;
             color: scale-lightness($white-text, -20);
+            border-right: 6px solid rgba(255,255,255,0.7);
+            padding-right: 8px;
+            height: 20px;
+
+            @include transition-property(all);
+            @include transition-duration(5s);
+            -webkit-transition-timing-function: ease-in-out;
         }
         p {
             padding: 0 0 $gutter 0;
@@ -114,7 +122,7 @@ form.default {
         &:focus {
             @include box-shadow(0px 0px 6px $green);
             border-color: $green;
-            background: rgba(255,255,255,0.125);
+            background: rgba(255,255,255,0.15);
         }
     }
     

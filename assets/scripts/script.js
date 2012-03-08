@@ -22,6 +22,18 @@
 	    return this.charAt(0).toUpperCase() + this.slice(1);
 	}
 
+	String.prototype.firstName = function() {
+
+		var name = this;
+		var parts = this.split(' ');
+
+		if (parts.length > 1) {
+			name = parts[0];
+		}
+
+		return name;
+	}
+
     /*
     	Plain JS Functions
     */
@@ -240,6 +252,7 @@
 				form_title = form.find('legend'),
 				name_field = form.find('#enquiry_name'),
 				name_val = '',
+				name_parts = [],
 				email_field = form.find('#enquiry_email'),
 				email_val = '',
 				title_parts = '';
@@ -247,12 +260,18 @@
 			name_field.blur(function() {
 
 				name_val = $(this).val();
+
+
 				// more than 2 chars
 				if(name_val.length > 2) {
-					form_title.html('Hello ' + name_val.capitalise() + ' &hellip; What can I do for you?');
+
+					form_title
+						.css({ width: '0px' })
+						.html('Hello ' + name_val.firstName().capitalise() + ' &hellip; How can I help?')
+						.css({ width: 'auto' });
 				}
 				else {
-					form_title.html('How can I help?')
+					form_title.html('Hello, we should talk &hellip;')
 				}
 			});
 			email_field.blur(function() {
@@ -264,7 +283,7 @@
 				if(email_val.length > 2 && name_val.length > 2) {
 
 
-					form_title.html('Hello ' + name_val.capitalise() + ', I\'ll email you there &hellip; What\'s up?');
+					form_title.html('Okay ' + name_val.firstName().capitalise() + ', I\'ll email you back &hellip; What\'s up?');
 
 				}
 				else {
@@ -361,6 +380,17 @@
 				}
 
 				var time_to_scroll = 250 + ((distance / 1000) * 50);
+
+
+				// Set height of last section to at least window height
+				var last_nav = body.find('#navigation li:last-child a').attr('href'); // last nav
+
+				var last_section_height = $(last_nav).height();
+				var window_height = $(window).height();
+
+				if (window_height > last_section_height) {
+					body.find('#scrollfix').height((window_height - last_section_height) - 60);
+				}
 
 				// do the scroll
 				$.scrollTo(target_top, time_to_scroll, { easing: $.bez([.65, 0, .58, 1]) });
