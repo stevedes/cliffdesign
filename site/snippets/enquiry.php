@@ -2,10 +2,11 @@
 
 ?>
 	
-<form action="/enquiry/" method="post" class="default">
+<form action="/enquiry/" method="post" id="contact_form" class="default">
 
 	<fieldset id="enquiry_set">
-		<legend>Got a quick question?</legend>
+		<legend>Hello, we should talk &hellip;</legend>
+		<hr />
 		<p>
 			<label for="enquiry_name"><abbr class="req" title="Required Field">*</abbr> Name</label>
 			<input type="text" name="enquiry_name" id="enquiry_name" class="def" value="" required="required" />

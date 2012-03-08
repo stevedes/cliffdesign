@@ -429,6 +429,8 @@ section#services {
 					@include transition-property(all);
 					@include transition-duration(0.15s);
 					
+					display: none;
+					
 					-webkit-transition-timing-function: ease-in-out;
 					-webkit-transform-style:preserve-3d;
 

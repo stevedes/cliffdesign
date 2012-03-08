@@ -17,6 +17,11 @@
 
     root = new $.prototype.init(document);
 
+    // Capitalises first letter
+    String.prototype.capitalise = function() {
+	    return this.charAt(0).toUpperCase() + this.slice(1);
+	}
+
     /*
     	Plain JS Functions
     */
@@ -66,6 +71,7 @@
 			// Init from no JS state
 			container
 				.removeClass('open')
+				.find('span.open').show()
 				.find('span.close').hide();
 			contents
 				.css('height', '0px');
@@ -81,6 +87,7 @@
 					// check if item is open
 					is_open = container.hasClass('open');
 
+					// ---- Slide Up --->
 					if (is_open) {
 
 						trigger = $(this).find('span.close');
@@ -119,11 +126,9 @@
 							});
 
 						// end transition
-
-						
-
 					}
 
+					// ---- Slide Down --->
 					else {
 
 						trigger = $(this).find('span.open');
@@ -174,31 +179,23 @@
 						/*
 						last_panel.waypoint(function(event, direction) {
 
-
 							if (direction === 'down') {
 								
 								// slide trigger down
 								height_when_open = contents.outerHeight(false);
 
 								hidden_trigger.transition({ y: height_when_open + 'px', easing: transition, duration: 200, delay: 150, });
-		
-								//alert('test');
 							}
-
 						}, {
 							continuous: false,
 							onlyOnScroll: true,
 						   	offset: '1px'  // middle of the page
 						});
 						*/
-
 					}
-
 				}
 			);
-
 		});
-
 	};
 
 
@@ -232,12 +229,51 @@
 				onlyOnScroll: false,
 			   	offset: '1px'  // middle of the page
 			});
-
-			//contentBlock.hide();
-
 		});
-
 	};
+
+	$.prototype.contactForm = function () {
+
+		return this.each(function () {
+
+			var form = $(this),
+				form_title = form.find('legend'),
+				name_field = form.find('#enquiry_name'),
+				name_val = '',
+				email_field = form.find('#enquiry_email'),
+				email_val = '',
+				title_parts = '';
+
+			name_field.blur(function() {
+
+				name_val = $(this).val();
+				// more than 2 chars
+				if(name_val.length > 2) {
+					form_title.html('Hello ' + name_val.capitalise() + ' &hellip; What can I do for you?');
+				}
+				else {
+					form_title.html('How can I help?')
+				}
+			});
+			email_field.blur(function() {
+
+				email_val = $(this).val();
+				name_val = name_field.val();
+	
+
+				if(email_val.length > 2 && name_val.length > 2) {
+
+
+					form_title.html('Hello ' + name_val.capitalise() + ', I\'ll email you there &hellip; What\'s up?');
+
+				}
+				else {
+
+				}
+			});
+		});
+	};
+
 
     /*
     	Make Rocket Go Now!
@@ -264,10 +300,8 @@
 		var window_height = $(window).height();
 
 		if (window_height > last_section_height) {
-
 			body.find('#scrollfix').height((window_height - last_section_height) - 60);
 		}
-
 
 
 		$('a[href*=#]').click ( function(e) {
@@ -328,12 +362,7 @@
 
 				var time_to_scroll = 250 + ((distance / 1000) * 50);
 
-				
-				//if (target)
-				// Sets an elem at the bottom of page to window height
-				// ensures page scroll works as expected
-				//body.find('#scrollfix').height($(window).height());
-
+				// do the scroll
 				$.scrollTo(target_top, time_to_scroll, { easing: $.bez([.65, 0, .58, 1]) });
 
 			}
@@ -345,6 +374,8 @@
 		// Dropdown portfolio items
 		$('#portfolio article').folioDrop();
 
+
+		body.find('#contact_form').contactForm();
 		
 	});
 

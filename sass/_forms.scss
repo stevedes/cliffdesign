@@ -5,7 +5,7 @@
 
 form.default {
     @include pie-clearfix;
-    padding: $gutter * 1.5;
+    padding: $gutter;
     background: #1a1f1f;
 
     //@include background-image(linear-gradient(scale-lightness(#1a1f1f, -20), #1a1f1f));
@@ -16,12 +16,31 @@ form.default {
     margin-top: $gutter;
     fieldset {
         
+
+        hr {
+            height: 1px;
+            background: rgba(0,0,0,0.5);
+            padding: 0;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.13);
+        }
         legend {
             //color: $green;
             padding-bottom: $gutter;
             //font-size: 13px;
             //text-transform: uppercase;
             //font-weight: bold;
+            //margin-left: 110px;
+            //padding-left: 60px;
+            display: block;
+            width: 100%;
+            @include border-box();
+            //line-height: 40px;
+            font-size: 18px;
+            line-height: 18px;
+            //background: url('/assets/images/face.png') 0px 0px no-repeat;
+            //color: #A2A2A2;
+            color: scale-lightness($white-text, -20);
         }
         p {
             padding: 0 0 $gutter 0;
@@ -48,6 +67,7 @@ form.default {
         font-size: 12px;
         text-transform: uppercase;
         font-weight: bold;
+        color: scale-lightness($white-text, -20);
 
         &.cbox {
             width: auto;
@@ -77,14 +97,25 @@ form.default {
         font-family: $font-family;
         font-size: $base-font-size;
         border: 1px solid #d1d2d4;
-        background: rgba(255,255,255,0.075);
+        background: rgba(255,255,255,0.1);
         padding: rhythm(0.35);
         margin: 0 0 0 0;
         width: 82.5%;
         float: right;
         border-color: rgba(0,0,0,0.5) rgba(255,255,255,0.05) rgba(255,255,255,0.05) rgba(0,0,0,0.5) ;
         //@include box-shadow(rgba(0,0,0,0.05) 0px 0px 5px);
+        color: $white-text;
 
+        outline:none;
+        @include transition-property("background, box-shadow");
+        @include transition-duration(0.1s);
+        -webkit-transition-timing-function: ease-in-out;
+
+        &:focus {
+            @include box-shadow(0px 0px 6px $green);
+            border-color: $green;
+            background: rgba(255,255,255,0.125);
+        }
     }
     
     textarea {
