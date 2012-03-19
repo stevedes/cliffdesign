@@ -1,0 +1,7 @@
+Title: Testimonial
+----
+Align: left
+----
+Text:
+Cliff Design have been a valuable source of ideas and inspiration throughout our re-branding process. Impressive results have been delivered on time and within budget and I would have no hesitation in recommending their services.
+*Ben Wood, Director*

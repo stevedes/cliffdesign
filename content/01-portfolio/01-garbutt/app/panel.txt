@@ -1,0 +1,7 @@
+Title: Proposal Board
+----
+Align: left
+----
+Text:
+
+This is quite a neat little bit of software. It enables all staff to create and archive branded proposal documents, without a designer. All they have to do is enter the text, and the software generates fully formatted PDF document, on brand.

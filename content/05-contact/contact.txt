@@ -3,5 +3,3 @@ Title: Get in Touch
 Fragment: contact
 ----
 Text:
-
-Now then, stick any chat in this here form, and we'll get back to you as soon as possible.

@@ -1,0 +1,7 @@
+Title: Fully responsive
+----
+Align: right
+----
+Text:
+
+The team at Garbutt & Elliott decided to extend the budget and opt to make the new website fully responsive, which means it automatically adjusts to a format suitable for the device, be it desktop, phone or tablet.
