@@ -147,8 +147,8 @@ header#top {
 			border-top: 1px solid rgba(255,255,255,0);
 			position: relative;
 			
-			@include transition-property("width");
-			@include transition-duration(0.5s);
+			@include transition-property("background, border-color, color");
+			@include transition-duration(0.15s);
 			-webkit-transition-timing-function: ease-in-out;
 
 			&:hover {
