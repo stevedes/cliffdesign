@@ -35,15 +35,13 @@
 
 				<ul class="contacts">
 					<li class="post">
-	
-						<a href="">1-5 Shambles, <br />York, <br />YO1 7LZ.</a>
+						<a href="">Google Map</a>
 					</li>
 					<li class="phone">
 
 						<strong><?php echo $site->phone() ?></strong>
 					</li>
 					<li class="email">
-
 						<strong><a href=""><?php echo $site->email() ?></a></strong>
 					</li>
 				</ul>
@@ -118,12 +116,10 @@
 											foreach($panel->images() as $image) {
 												echo '<figure><img src="' . $image->url() . '" /></figure>';
 											}
-
 										}
 
 										echo '</div></div>';
 									}
-
 								}
 
 								?>

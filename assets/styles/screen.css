@@ -71,7 +71,7 @@ html {
 body {
   font-family: "Helvetica Neue", sans-serif;
   color: black;
-  background: #e8e8e8 url("/assets/images/sidebar.png") 0px 0px repeat-y;
+  background: white url("/assets/images/sidebar.png") 0px 0px repeat-y;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 }
@@ -91,7 +91,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 25.6px;
+  font-size: 24px;
   padding: 3px 0 0.547em 0;
   margin-bottom: 0.625em;
   font-weight: 600;
