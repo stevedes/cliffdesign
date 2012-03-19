@@ -152,11 +152,11 @@ pre {
   border-width: 0.063em;
   padding: 1.5em;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0.5)), color-stop(100%, rgba(255, 255, 255, 0)));
-  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
-  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
-  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
-  background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
-  background-image: linear-gradient(top, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  background-image: -ms-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
 }
 
 ul {
@@ -242,7 +242,7 @@ figure.full div {
   width: 100%;
   position: absolute;
   -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   bottom: 0px;
   z-index: 101;
@@ -254,7 +254,7 @@ figure.full div figcaption {
   background: rgba(0, 0, 0, 0.6);
   padding: 6.667px 10px;
   -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   float: right;
   color: #777;
@@ -313,9 +313,13 @@ form.default fieldset legend {
   height: 20px;
   -webkit-transition-property: all;
   -moz-transition-property: all;
+  -ms-transition-property: all;
+  -o-transition-property: all;
   transition-property: all;
   -webkit-transition-duration: 5s;
   -moz-transition-duration: 5s;
+  -ms-transition-duration: 5s;
+  -o-transition-duration: 5s;
   transition-duration: 5s;
   -webkit-transition-timing-function: ease-in-out;
 }
@@ -382,9 +386,13 @@ form.default input.def, form.default textarea {
   outline: none;
   -webkit-transition-property: background, box-shadow;
   -moz-transition-property: background, box-shadow;
+  -ms-transition-property: background, box-shadow;
+  -o-transition-property: background, box-shadow;
   transition-property: background, box-shadow;
   -webkit-transition-duration: 0.1s;
   -moz-transition-duration: 0.1s;
+  -ms-transition-duration: 0.1s;
+  -o-transition-duration: 0.1s;
   transition-duration: 0.1s;
   -webkit-transition-timing-function: ease-in-out;
 }
@@ -599,18 +607,20 @@ header#top nav a {
   font-weight: bold;
   text-shadow: 0px -1px 1px rgba(0, 0, 0, 0.2);
   -webkit-background-clip: padding;
-  -moz-background-clip: padding-box;
-  -ms-background-clip: padding-box;
-  -o-background-clip: padding-box;
+  -moz-background-clip: padding;
   background-clip: padding-box;
   border-bottom: 1px solid rgba(255, 255, 255, 0);
   border-top: 1px solid rgba(255, 255, 255, 0);
   position: relative;
   -webkit-transition-property: width;
   -moz-transition-property: width;
+  -ms-transition-property: width;
+  -o-transition-property: width;
   transition-property: width;
   -webkit-transition-duration: 0.5s;
   -moz-transition-duration: 0.5s;
+  -ms-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
   transition-duration: 0.5s;
   -webkit-transition-timing-function: ease-in-out;
 }
@@ -628,6 +638,8 @@ header#top nav a.active {
   cursor: default;
   -webkit-transition-duration: 0.15s;
   -moz-transition-duration: 0.15s;
+  -ms-transition-duration: 0.15s;
+  -o-transition-duration: 0.15s;
   transition-duration: 0.15s;
   -webkit-transition-timing-function: ease-out;
 }
@@ -744,9 +756,13 @@ footer#bottom dl dd a {
   color: black;
   -webkit-transition-property: background;
   -moz-transition-property: background;
+  -ms-transition-property: background;
+  -o-transition-property: background;
   transition-property: background;
   -webkit-transition-duration: 0.2s;
   -moz-transition-duration: 0.2s;
+  -ms-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
   transition-duration: 0.2s;
   -webkit-transition-timing-function: ease-in-out;
 }
@@ -859,9 +875,13 @@ section#services article p {
   position: relative;
   -webkit-transition-property: all;
   -moz-transition-property: all;
+  -ms-transition-property: all;
+  -o-transition-property: all;
   transition-property: all;
   -webkit-transition-duration: 0.1s;
   -moz-transition-duration: 0.1s;
+  -ms-transition-duration: 0.1s;
+  -o-transition-duration: 0.1s;
   transition-duration: 0.1s;
   -webkit-transition-timing-function: ease-in-out;
 }
@@ -884,16 +904,18 @@ section#services article p {
   text-shadow: -1px 0px 1px rgba(0, 0, 0, 0.2);
   -webkit-backface-visibility: hidden;
   -webkit-background-clip: padding;
-  -moz-background-clip: padding-box;
-  -ms-background-clip: padding-box;
-  -o-background-clip: padding-box;
+  -moz-background-clip: padding;
   background-clip: padding-box;
   border: 5px solid rgba(255, 255, 255, 0);
   -webkit-transition-property: all;
   -moz-transition-property: all;
+  -ms-transition-property: all;
+  -o-transition-property: all;
   transition-property: all;
   -webkit-transition-duration: 0.15s;
   -moz-transition-duration: 0.15s;
+  -ms-transition-duration: 0.15s;
+  -o-transition-duration: 0.15s;
   transition-duration: 0.15s;
   display: none;
   -webkit-transition-timing-function: ease-in-out;

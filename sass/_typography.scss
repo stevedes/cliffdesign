@@ -63,7 +63,7 @@ pre {
 	@include rhythm-borders($width: 1px, $border-style: dotted);
 
 	//@include radial-gradient(color-stops(rgba(255,255,255,0.7), rgba(255,255,255,0)));
-	@include linear-gradient(color-stops(rgba(255,255,255,0.5), rgba(255,255,255,0)));
+	@include background-image(linear-gradient(color-stops(rgba(255,255,255,0.5), rgba(255,255,255,0))));
 }
 
 ul {
