@@ -35,7 +35,7 @@
 
 				<ul class="contacts">
 					<li class="post">
-						<a href="">Google Map</a>
+						<a href="<?php echo $site->map() ?>">Google Map</a>
 					</li>
 					<li class="phone">
 

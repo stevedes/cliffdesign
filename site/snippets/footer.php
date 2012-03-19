@@ -2,7 +2,7 @@
 			<h2>Contact</h2>
 			<dl>
 				<dt class="post">Post:</dt>
-				<dd><?php echo $site->address() ?>.  <a href="">Google Map</a></dd>
+				<dd><?php echo $site->address() ?>.  <a href="<?php echo $site->map() ?>">Google Map</a></dd>
 				<dt class="phone">Phone:</dt>
 				<dd class="phone"><?php echo $site->phone() ?></dd>
 				<dt class="email">Email:</dt>
