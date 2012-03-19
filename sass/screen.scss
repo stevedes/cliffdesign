@@ -421,17 +421,22 @@ section#services {
 					line-height: 45px;
 					height: 55px;
 					@include text-shadow(-1px 0px 1px rgba(0,0,0,0.2));
-					-webkit-backface-visibility: hidden;
+					
 					@include background-clip(padding-box);
 					border: 5px solid rgba(255,255,255,0);
 
-					@include transition-property(all);
-					@include transition-duration(0.15s);
+					//@include transition-property(all);
+					//@include transition-duration(0.15s);
 					
 					display: none;
 
-					-webkit-transition-timing-function: ease-in-out;
+					@include backface-visibility('hidden');
+					
+					-webkit-backface-visibility: hidden;
+					backface-visibility: hidden;
+					
 					-webkit-transform-style:preserve-3d;
+					transform-style:preserve-3d;
 
 					&:hover {
 						background: $green;

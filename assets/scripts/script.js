@@ -78,7 +78,8 @@
 				is_open = false,
 				height_when_open = 0, // this needs calculating later on, due to flexible height images
 				current_height = 0,
-				time_to_open = 0;
+				time_to_open = 0,
+				time_to_close = 0;
 
 			// Init from no JS state
 			container
@@ -109,32 +110,37 @@
 						height_when_open = contents.outerHeight(false);
 
 						// Set time for open/close animation, partly based on height
-						time_to_open = 200 + (height_when_open / 8);
+						time_to_open = 400 + (height_when_open / 8);
+						time_to_close = (height_when_open / 10);
 
 						// slide up
 						trigger
 							.show()
 							.transition({ y: '-5px', easing: 'ease-in', duration: '50ms', })
 							.transition({ y: height_when_open + 'px', easing: transition, duration: time_to_open, delay: 150, }, function() {
-								contents.transition({ height: '0px', easing: transition, duration: time_to_open, }, function() {
+								contents.transition({ height: '0px', easing: 'ease-in', duration: time_to_close, }, function() {
 									$.waypoints('refresh');
 
 									container.removeClass('open');
 								});
 							})
-							.transition({ y: '0px', easing: transition, duration: time_to_open, })
+							.transition({ y: '0px', easing: transition, duration: time_to_close, })
 							.transition({
 								delay: 50,
 							    perspective: '100px',
 							    rotateY: '180deg',
 							    easing: transition,
-							    duration: '250ms'
+							    duration: '150ms'
 							}, function() {
 								
+								
+
 								// show close trigger
 								hidden_trigger.transition({rotateY: '0deg', duration: '0ms' }).show();
+
 								// hide open
 								trigger.hide();
+								
 							});
 
 						// end transition
@@ -176,12 +182,16 @@
 							})
 							.transition({ y: '-5px', easing: transition, duration: '25ms', })
 							.transition({ y: '0px', easing: transition, duration: '15ms', })
-							.transition({ delay: 0, perspective: '100px', rotateY: '180deg', easing: transition, duration: '250ms', }, function() {
+							.transition({ delay: 0, perspective: '100px', rotateY: '180deg', easing: transition, duration: '150ms', }, function() {
+
+								
 
 								// show close trigger
 								hidden_trigger.transition({rotateY: '0deg', duration: '0ms' }).show();
+
 								// hide open
 								$(this).hide();
+								
 							});
 
 						// end transition
