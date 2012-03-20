@@ -15,21 +15,21 @@
 
 		<section id="<?php echo $section->fragment() ?>">
 
+			<?php if ($about_pic) : ?>
+			<figure>
+				<img src="<?php echo $about_pic->url() ?>" />
+			</figure>
+			<?php endif ?>
+
 			<h1><?php echo html($section->title()) ?></h1>
+
+			<?php echo kirbytext($section->text()) ?>
 
 			<?php if($section->fragment() == 'about'): ?>
 				<?php if ($site->linkedin()) : ?>
 					<a class="linkedin" href="<?php echo $site->linkedin() ?>">Linked In</a>
 				<?php endif ?>
-
-				<?php if ($about_pic) : ?>
-				<figure>
-					<img src="<?php echo $about_pic->url() ?>" />
-				</figure>
-				<?php endif ?>
 			<?php endif ?>
-
-			<?php echo kirbytext($section->text()) ?>
 
 			<?php if($section->fragment() == 'contact'): ?>
 

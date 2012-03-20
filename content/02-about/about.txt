@@ -4,6 +4,6 @@ Fragment: about
 ----
 Text:
 
-Cliff Design is the friendly creative studio of [David Cliff](#about). Based in the heart of York, we provide specialist graphic design services to a hand-picked selection of thriving companies in and around Yorkshire.
+Cliff Design is the friendly creative studio of **David Cliff**. Based in the heart of York, we provide specialist graphic design services to a hand-picked selection of thriving companies in and around Yorkshire.
 
-You'll also be pleased to know that we're [refreshingly straight talking,](#about) which means there's no designer egos to satisfy, no corporate waffle to wade through, just a great studio dedicated to customer satisfaction.
+You'll also be pleased to know that we're *refreshingly straight talking*, which means there's no designer egos to satisfy, no corporate waffle to wade through, just a great studio dedicated to customer satisfaction.

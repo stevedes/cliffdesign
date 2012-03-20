@@ -81,11 +81,9 @@ body {
 
 header#top {
 	position: fixed;
-	//width: $sidebar-column;
 	width: 225px;
 	top: 0px;
 	left: 0px;
-
 
 	h1 {
 		margin: 0;
@@ -296,11 +294,13 @@ footer#bottom {
 
 		&#about {
 			position: relative;
+			border-bottom: 1px solid #ccc;
+
 			a.linkedin {
 				display: block;
 				position: absolute;
-				top: 45px;
-				right: 50px;
+				bottom: 20px;
+				left: 0px;
 				width: 80px;
 				height: 20px;
 				text-indent: 100%;
@@ -315,7 +315,7 @@ footer#bottom {
 			figure {
 				width: 33.33333333%;
 				float: right;
-				margin-left: ($gutter / 1.5);
+				margin-left: ($gutter / 1.25);
 			}
 		}
 	}
@@ -351,8 +351,9 @@ section#services {
 		}
 
 		h2 {
-
-			padding-left: $gutter * 1.5;
+			border-top: 1px solid #ccc;
+			padding-top: ($gutter / 2);
+			padding-left: $gutter * 1.6;
 			background-image: url('/assets/images/icons_grey.png');
 			background-repeat: no-repeat;
 			font-size: 18px;
@@ -363,7 +364,7 @@ section#services {
 		$i: 0;
 		@each $type in $tags {
 			&.#{$type} h2 {
-				$px: -(($i * 150px) - 5px);
+				$px: -(($i * 150px) - 15px);
 				background-position: 0px $px;
 			}
 			$i:$i+1;
@@ -421,13 +422,8 @@ section#services {
 					line-height: 45px;
 					height: 55px;
 					@include text-shadow(-1px 0px 1px rgba(0,0,0,0.2));
-					
 					@include background-clip(padding-box);
 					border: 5px solid rgba(255,255,255,0);
-
-					//@include transition-property(all);
-					//@include transition-duration(0.15s);
-					
 					display: none;
 
 					@include backface-visibility('hidden');
@@ -715,7 +711,6 @@ ul.contacts {
 		width: 33.333333333%;
 		float: left;
 		padding: $gutter $gutter $gutter ($gutter * 2);
-		//border-top: 1px solid rgba(255,255,255,0.4);
 		background-image: url('/assets/images/contact_icons_black.png');
 		background-repeat: no-repeat;
 		&.post {

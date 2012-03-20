@@ -771,12 +771,13 @@ footer#bottom dl dd a {
 }
 #content section#about {
   position: relative;
+  border-bottom: 1px solid #ccc;
 }
 #content section#about a.linkedin {
   display: block;
   position: absolute;
-  top: 45px;
-  right: 50px;
+  bottom: 20px;
+  left: 0px;
   width: 80px;
   height: 20px;
   text-indent: 100%;
@@ -790,7 +791,7 @@ footer#bottom dl dd a {
 #content section#about figure {
   width: 33.33333333%;
   float: right;
-  margin-left: 13.333px;
+  margin-left: 16px;
 }
 
 section#services article {
@@ -819,7 +820,9 @@ section#services article figure {
   padding-bottom: 10px;
 }
 section#services article h2 {
-  padding-left: 30px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+  padding-left: 32px;
   background-image: url("/assets/images/icons_grey.png");
   background-repeat: no-repeat;
   font-size: 18px;
@@ -827,28 +830,28 @@ section#services article h2 {
   padding-bottom: 8px;
 }
 section#services article.branding h2 {
-  background-position: 0px 5px;
+  background-position: 0px 15px;
 }
 section#services article.print h2 {
-  background-position: 0px -145px;
+  background-position: 0px -135px;
 }
 section#services article.website h2 {
-  background-position: 0px -295px;
+  background-position: 0px -285px;
 }
 section#services article.app h2 {
-  background-position: 0px -445px;
+  background-position: 0px -435px;
 }
 section#services article.signage h2 {
-  background-position: 0px -595px;
+  background-position: 0px -585px;
 }
 section#services article.email h2 {
-  background-position: 0px -745px;
+  background-position: 0px -735px;
 }
 section#services article.exhibition h2 {
-  background-position: 0px -895px;
+  background-position: 0px -885px;
 }
 section#services article.marketing h2 {
-  background-position: 0px -1045px;
+  background-position: 0px -1035px;
 }
 section#services article p {
   padding-top: 0;
