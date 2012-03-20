@@ -39,7 +39,11 @@
   </script>
 
   <?php echo css('assets/styles/screen.css') ?>
-  
+
+  <!--[if lt IE 9]>
+  <?php echo css('assets/styles/ie.css') ?>
+  <!--<![endif]-->
+
 </head>
 <body>
     

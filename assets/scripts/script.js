@@ -418,7 +418,6 @@
 				else {
 					form_title.html('Something is amiss, I\'ve marked the issues');
 				}
-
 			})
 		});
 	};
@@ -531,7 +530,13 @@
 		//if ( ! $(window).scrollTop() ) $(window).trigger ( 'hashchange' );
 		
 		// Dropdown portfolio items
-		$('#portfolio article').folioDrop();
+
+		// not for less than ie8
+		if (!html.hasClass('lt-ie8')) {
+
+			body.find('#portfolio article').folioDrop();
+		}
+		
 
 
 		body.find('#contact_form').contactForm();

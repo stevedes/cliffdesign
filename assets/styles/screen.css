@@ -648,7 +648,8 @@ header#top nav a:hover {
   border-top-color: rgba(13, 74, 54, 0.7);
   border-bottom-color: rgba(255, 255, 255, 0.075);
 }
-header#top nav a.active {
+header#top nav a.active, header#top nav a.active:active {
+  background: #000;
   background: rgba(0, 0, 0, 0.25);
   border-top-color: rgba(0, 0, 0, 0.25);
   border-bottom-color: rgba(255, 255, 255, 0.1);
@@ -661,7 +662,7 @@ header#top nav a.active {
   transition-duration: 0.15s;
   -webkit-transition-timing-function: ease-out;
 }
-header#top nav a.active:after {
+header#top nav a.active:after, header#top nav a.active:active:after {
   display: block;
   content: "";
   border: 4px solid;
