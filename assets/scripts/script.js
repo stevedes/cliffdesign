@@ -34,6 +34,13 @@
 		return name;
 	}
 
+	function validateEmail(email) { 
+		// http://stackoverflow.com/a/46181/11236
+
+		var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		return re.test(email);
+	}
+
     /*
     	Plain JS Functions
     */
@@ -259,47 +266,160 @@
 		return this.each(function () {
 
 			var form = $(this),
-				form_title = form.find('legend'),
+				fieldset = form.find('fieldset'),
+				form_title = form.find('h2.legend'),
 				name_field = form.find('#enquiry_name'),
 				name_val = '',
 				name_parts = [],
 				email_field = form.find('#enquiry_email'),
 				email_val = '',
-				title_parts = '';
+				message_field = form.find('#enquiry_message'),
+				message_val = '',
+				title_parts = '',
+				valid_email = false,
+				has_errors = false,
+				button_elem = form.find('button'),
+				form_height = 0;
+
 
 			name_field.blur(function() {
 
+				message_val = message_field.val();
+				email_val = email_field.val();
 				name_val = $(this).val();
 
+				if(name_val.length > 0) {
+					name_field.removeClass('error');
 
-				// more than 2 chars
-				if(name_val.length > 2) {
-
-					form_title
-						.css({ width: '0px' })
-						.html('Hello ' + name_val.firstName().capitalise() + ' &hellip; How can I help?')
-						.css({ width: 'auto' });
+					// if all match
+					if (validateEmail(email_val) && message_val.length > 0) {
+						form_title.html('There we go &hellip; Hit the button to send!');
+					}
+					else {
+						form_title.html('Hello ' + name_val.firstName().capitalise() + ' &hellip; How can we help?');
+					}
 				}
 				else {
-					form_title.html('Hello, we should talk &hellip;')
+					form_title.html('Something is amiss, I\'ve marked the issues');
+					name_field.addClass('error');
 				}
+
 			});
+
 			email_field.blur(function() {
 
 				email_val = $(this).val();
 				name_val = name_field.val();
-	
+				message_val = message_field.val();
 
-				if(email_val.length > 2 && name_val.length > 2) {
+				if (validateEmail(email_val)) {
 
+					email_field.removeClass('error');
 
-					form_title.html('Okay ' + name_val.firstName().capitalise() + ', I\'ll email you back &hellip; What\'s up?');
+					// if all match
+					if (name_val.length > 0 && message_val.length > 0) {
+						form_title.html('There we go &hellip; Hit the button to send!');
+					}
+					else if (name_val.length > 0) {
+						form_title.html('Okay ' + name_val.firstName().capitalise() + ', We\'ll email you back &hellip; What\'s up?');
+					}
 
 				}
 				else {
+					form_title.html('Something is amiss, I\'ve marked the issues');
+					email_field.addClass('error');
+				}
+				
+			});
+
+			message_field.blur(function() {
+
+				message_val = $(this).val();
+				email_val = email_field.val();
+				name_val = name_field.val();
+
+				if(message_val.length > 0) {
+
+					message_field.removeClass('error');
+
+					// if all match
+					if (validateEmail(email_val) && name_val.length > 0) {
+						form_title.html('There we go &hellip; Hit the button to send!');
+					}
 
 				}
+				else {
+					form_title.html('Something is amiss, I\'ve marked the issues');
+					message_field.addClass('error');
+				}
 			});
+
+			// submit event
+			form.submit(function(e) {
+
+				e.preventDefault();
+
+				form_title.html('Hmmm &hellip;');
+
+				has_errors = false;
+
+				message_val = message_field.val();
+				email_val = email_field.val();
+				name_val = name_field.val();
+
+				// validate
+				if (name_val.length < 1) {
+					name_field.addClass('error');
+					has_errors = true;
+				} else {
+					name_field.removeClass('error');
+				}
+				if (!validateEmail(email_val)) {
+					email_field.addClass('error');
+					has_errors = true;
+				} else {
+					email_field.removeClass('error');
+				}
+				if (message_val.length < 1) {
+					message_field.addClass('error');
+					has_errors = true;
+				} else {
+					message_field.removeClass('error');
+				}
+
+				// if no errors, send form ajax
+				if (!has_errors) {
+
+					button_elem.html('Please Wait');
+
+					$.post("/enquiry.php",
+						{
+							name: name_val,
+							email: email_val,
+							message: message_val
+						},
+						function(status) {
+							
+							if(status == 'done') {
+			
+								form_height = form.height();
+								form.height(form_height);
+
+								form
+									.addClass('sent')
+									.find('*').remove()
+									.end()
+									.html('<p>I\'ve sent your message. David will reply asap. Thanks!</p>')
+									.find('p').fadeIn('fast');
+							}
+						}
+					);
+				}
+				else {
+					form_title.html('Something is amiss, I\'ve marked the issues');
+				}
+
+			})
 		});
 	};
 

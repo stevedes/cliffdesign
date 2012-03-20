@@ -5,7 +5,7 @@
 
 form.default {
     @include pie-clearfix;
-    padding: $gutter $gutter ($gutter * 1.25) $gutter;
+    padding: 0 $gutter ($gutter * 1.25) $gutter;
     background: #1a1f1f;
 
     //@include background-image(linear-gradient(scale-lightness(#1a1f1f, -20), #1a1f1f));
@@ -14,21 +14,40 @@ form.default {
     @include box-shadow(inset 2px 2px 2px rgba(0,0,0,0.8));
     color: $white-text;
     margin-top: $gutter;
-    fieldset {
-        
 
-        hr {
-            height: 1px;
-            background: rgba(0,0,0,0.5);
-            padding: 0;
-            margin: 20px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.13);
-            width: 100%;
-            float: left;
+    &.sent {
+        background: transparent;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 0;
+        p {
+            height: ($gutter * 2);
+            line-height: ($gutter * 2);
+            padding: $gutter $gutter $gutter ($gutter * 4);
+            background: #1a1f1f url('/assets/images/face2.png') $gutter $gutter no-repeat;
+            display: none;
+            margin: 0;
         }
-        legend {
+        @include box-shadow(none);
+        color: $white-text;
+        //padding-left: $gutter * 3;
+    }
+    hr {
+        height: 1px;
+        background: rgba(0,0,0,0.5);
+        padding: 0;
+        margin: 20px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.13);
+        width: 100%;
+        float: left;
+    }
+
+    h2.legend {
+        padding:  0;
+        margin-top: $gutter;
+        float: left;
             //color: $green;
-            margin-bottom: $gutter;
+            margin-bottom: 0;
             //font-size: 13px;
             //text-transform: uppercase;
             //font-weight: bold;
@@ -46,10 +65,13 @@ form.default {
             padding-right: 8px;
             height: 20px;
 
-            @include transition-property(all);
-            @include transition-duration(5s);
-            -webkit-transition-timing-function: ease-in-out;
         }
+
+    fieldset {
+        
+        clear: left;
+        
+        
         p {
             padding: 0 0 $gutter 0;
             margin: 0;
@@ -115,14 +137,14 @@ form.default {
         color: $white-text;
 
         outline:none;
-        @include transition-property("background, box-shadow");
+        @include transition-property("background-color, box-shadow");
         @include transition-duration(0.1s);
         -webkit-transition-timing-function: ease-in-out;
 
         &:focus {
             @include box-shadow(0px 0px 6px $green);
             border-color: $green;
-            background: rgba(255,255,255,0.15);
+            background-color: rgba(255,255,255,0.15);
         }
     }
     
@@ -153,8 +175,12 @@ form.default {
 
     /*- Error Styles ----------*/
     input.error, textarea.error {
-        border-color: #f77 #f77 #f77 #f77;
-        background: #fff;
+        background-image: url('/assets/images/alert.png');
+        background-position: 98% 9px;
+        background-repeat: no-repeat;
+    }
+    input.critical, textarea.critical {
+        //border-color: #F0AB35;
     }
 
     .file {
@@ -249,6 +275,13 @@ p + form {
 }
 p + div.alert {
     @include margin-leader();
+}
+
+
+div.form_done {
+    clear: left;
+    background: #000 url('/assets/images/face2.png') 0px 0px no-repeat;
+    padding-left: ($gutter * 2);
 }
 
     

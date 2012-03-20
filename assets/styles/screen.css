@@ -270,7 +270,7 @@ figure.full div figcaption a {
 ----------------------------------------------------------------------*/
 form.default {
   *zoom: 1;
-  padding: 20px 20px 25px 20px;
+  padding: 0 20px 25px 20px;
   background: #1a1f1f;
   border-bottom: 1px solid #fff;
   -webkit-box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.8);
@@ -289,10 +289,25 @@ form.default:after {
   display: table;
   clear: both;
 }
-form.default fieldset {
-  /* Honeypot field */
+form.default.sent {
+  background: transparent;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  color: #e8e8e8;
 }
-form.default fieldset hr {
+form.default.sent p {
+  height: 40px;
+  line-height: 40px;
+  padding: 20px 20px 20px 80px;
+  background: #1a1f1f url("/assets/images/face2.png") 20px 20px no-repeat;
+  display: none;
+  margin: 0;
+}
+form.default hr {
   height: 1px;
   background: rgba(0, 0, 0, 0.5);
   padding: 0;
@@ -301,8 +316,11 @@ form.default fieldset hr {
   width: 100%;
   float: left;
 }
-form.default fieldset legend {
-  margin-bottom: 20px;
+form.default h2.legend {
+  padding: 0;
+  margin-top: 20px;
+  float: left;
+  margin-bottom: 0;
   display: block;
   font-size: 18px;
   line-height: 20px;
@@ -311,17 +329,10 @@ form.default fieldset legend {
   border-right: 6px solid rgba(255, 255, 255, 0.7);
   padding-right: 8px;
   height: 20px;
-  -webkit-transition-property: all;
-  -moz-transition-property: all;
-  -ms-transition-property: all;
-  -o-transition-property: all;
-  transition-property: all;
-  -webkit-transition-duration: 5s;
-  -moz-transition-duration: 5s;
-  -ms-transition-duration: 5s;
-  -o-transition-duration: 5s;
-  transition-duration: 5s;
-  -webkit-transition-timing-function: ease-in-out;
+}
+form.default fieldset {
+  clear: left;
+  /* Honeypot field */
 }
 form.default fieldset p {
   padding: 0 0 20px 0;
@@ -384,11 +395,11 @@ form.default input.def, form.default textarea {
   border-color: rgba(0, 0, 0, 0.5) rgba(255, 255, 255, 0.05) rgba(255, 255, 255, 0.05) rgba(0, 0, 0, 0.5);
   color: #e8e8e8;
   outline: none;
-  -webkit-transition-property: background, box-shadow;
-  -moz-transition-property: background, box-shadow;
-  -ms-transition-property: background, box-shadow;
-  -o-transition-property: background, box-shadow;
-  transition-property: background, box-shadow;
+  -webkit-transition-property: background-color, box-shadow;
+  -moz-transition-property: background-color, box-shadow;
+  -ms-transition-property: background-color, box-shadow;
+  -o-transition-property: background-color, box-shadow;
+  transition-property: background-color, box-shadow;
   -webkit-transition-duration: 0.1s;
   -moz-transition-duration: 0.1s;
   -ms-transition-duration: 0.1s;
@@ -401,7 +412,7 @@ form.default input.def:focus, form.default textarea:focus {
   -moz-box-shadow: 0px 0px 6px #21b685;
   box-shadow: 0px 0px 6px #21b685;
   border-color: #21b685;
-  background: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.15);
 }
 form.default textarea {
   height: 10em;
@@ -429,8 +440,9 @@ form.default label.cbox input {
   border: none;
 }
 form.default input.error, form.default textarea.error {
-  border-color: #f77 #f77 #f77 #f77;
-  background: #fff;
+  background-image: url("/assets/images/alert.png");
+  background-position: 98% 9px;
+  background-repeat: no-repeat;
 }
 form.default .file {
   font-size: 17px;
@@ -543,6 +555,12 @@ p + form {
 
 p + div.alert {
   margin-top: 1.563em;
+}
+
+div.form_done {
+  clear: left;
+  background: black url("/assets/images/face2.png") 0px 0px no-repeat;
+  padding-left: 40px;
 }
 
 #welcome {
