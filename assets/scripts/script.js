@@ -123,15 +123,15 @@
 						// slide up
 						trigger
 							.show()
-							.transition({ y: '-5px', easing: 'ease-in', duration: '50ms', })
-							.transition({ y: height_when_open + 'px', easing: transition, duration: time_to_open, delay: 150, }, function() {
-								contents.transition({ height: '0px', easing: 'ease-in', duration: time_to_close, }, function() {
+							.transition({ y: '-5px', easing: 'ease-in', duration: '50ms' })
+							.transition({ y: height_when_open + 'px', easing: transition, duration: time_to_open, delay: 150 }, function() {
+								contents.transition({ height: '0px', easing: 'ease-in', duration: time_to_close }, function() {
 									$.waypoints('refresh');
 
 									container.removeClass('open');
 								});
 							})
-							.transition({ y: '0px', easing: transition, duration: time_to_close, })
+							.transition({ y: '0px', easing: transition, duration: time_to_close })
 							.transition({
 								delay: 50,
 							    perspective: '100px',
@@ -175,21 +175,21 @@
 						// Slide Down Transition
 						trigger
 							.show()
-							.transition({ y: '-55px', easing: transition, duration: '125ms', })
-							.transition({ y: '-54px', easing: transition, duration: '350ms', })
-							.transition({ y: '0px', easing: transition, duration: '50ms', }, function() {
+							.transition({ y: '-55px', easing: transition, duration: '125ms' })
+							.transition({ y: '-54px', easing: transition, duration: '350ms' })
+							.transition({ y: '0px', easing: transition, duration: '50ms' }, function() {
 
 								// slide down contents
-								contents.transition({ height: height_when_open+'px', easing: transition, duration: time_to_open, }, function() {
+								contents.transition({ height: height_when_open+'px', easing: transition, duration: time_to_open }, function() {
 	
 									$.waypoints('refresh'); // refresh waypoints
 
 									container.addClass('open');
 								});
 							})
-							.transition({ y: '-5px', easing: transition, duration: '25ms', })
-							.transition({ y: '0px', easing: transition, duration: '15ms', })
-							.transition({ delay: 0, perspective: '100px', rotateY: '180deg', easing: transition, duration: '150ms', }, function() {
+							.transition({ y: '-5px', easing: transition, duration: '25ms' })
+							.transition({ y: '0px', easing: transition, duration: '15ms' })
+							.transition({ delay: 0, perspective: '100px', rotateY: '180deg', easing: transition, duration: '150ms' }, function() {
 
 								
 
@@ -524,7 +524,6 @@
 
 				// do the scroll
 				$.scrollTo(target_top, time_to_scroll, { easing: $.bez([.65, 0, .58, 1]) });
-
 			}
 
 		});

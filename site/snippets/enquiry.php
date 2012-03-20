@@ -2,7 +2,7 @@
 
 ?>
 	
-<form action="/enquiry/" method="post" id="contact_form" class="default" novalidate>
+<form action="/enquiry/" method="post" id="contact_form" class="default">
 
 	<h2 class="legend">Hello, we should talk &hellip;</h2>
 	<hr />

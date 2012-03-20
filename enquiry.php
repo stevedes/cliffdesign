@@ -25,8 +25,8 @@ if ($name && $email && $message) {
 	if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
 
-		//$to = 'david@cliffdesign.co.uk';
-		$to = 'steve@designition.co.uk';
+		$to = 'david@cliffdesign.co.uk';
+		//$to = 'steve@designition.co.uk';
 		$subject = "Website message";
 		$body = "$name said: $message";
 		$headers = "From: $email";
