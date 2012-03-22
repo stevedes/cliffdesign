@@ -11,12 +11,22 @@
 		</footer>
 
 	</div>
-		
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="assets/scripts/libs/jquery-1.7.1.min.js"><\/script>')</script>
 	
-	<script src="assets/scripts/plugins.js"></script>
-	<script src="assets/scripts/script.js"></script>
+	<script type="text/javascript">
+		yepnope({
+			load: '//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js',
+			complete: function () {
+				if (!window.jQuery) {
+					yepnope('/assets/scripts/libs/jquery-1.7.1.min.js');
+				}
+				yepnope([
+					'/assets/scripts/plugins.js',
+					'/assets/scripts/master.js',
+					'ielt9!/assets/scripts/libs/selectivizr-min.js'
+				]);
+			}
+		});
+	</script>
 	
 	<script>
 		var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
