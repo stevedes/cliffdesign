@@ -11,6 +11,8 @@
   <meta name="description" content="<?php echo html($site->description()) ?>" />
   <meta name="author" content="<?php echo html($site->author()) ?> ?>">
 
+  <link rel="icon shortcut" href="/favicon.ico" type="image/vnd.microsoft.com" />
+  
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <?php echo js('assets/scripts/libs/modernizr-2.5.2.min.js') ?>
