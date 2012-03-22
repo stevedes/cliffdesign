@@ -149,7 +149,10 @@ header#top {
 			@include transition-duration(0.15s);
 			-webkit-transition-timing-function: ease-in-out;
 
+			outline: none;
+
 			&:hover {
+				background: #20B685;
 				background: rgba(33,182,133,0.8);
 				color: #fff;
 				border-top-color: rgba(13,74,54,0.7);
@@ -171,6 +174,7 @@ header#top {
   					display: block;
   					content: "";
   					border: 4px solid;
+  					border-color: transparent transparent transparent #E8E8E8;
   					border-color: transparent transparent transparent rgba(232,232,232,0.95);
   					width: 0px;
   					height: 0px;
@@ -183,7 +187,8 @@ header#top {
 			}
 
 			&:active {
-				background: #fff;
+
+				background: #000;
 				border-top-color: rgba(0,0,0,0.2);
 				border-bottom-color: rgba(255,255,255,0.075);
 				//color: #fff;
@@ -278,6 +283,7 @@ footer#bottom {
 
 				a {
 					padding: 1px 2px;
+					background: #D1EFE6;
 					background: rgba(33,182,133,0.2);
 					font-weight: normal;
 					color: $text-color;
@@ -436,7 +442,7 @@ section#services {
 					-webkit-transform-style:preserve-3d;
 					transform-style:preserve-3d;
 
-					&:hover {
+					&:hover, &:focus {
 						background: $green;
 					}
 
@@ -702,10 +708,12 @@ ul.contacts {
 	list-style: none;
 	margin: $gutter 0 0 0;
 	padding: 0 $gutter;
+	background: #eee;
 	background: rgba(0,0,0,0.05);
-		border: 1px solid;
+	border: 1px solid;
+	border-color: #ccc #fff #ccc #fff;
 
-		border-color: rgba(0,0,0,0.05) rgba(255,255,255,0.7) rgba(255,255,255,0.7) rgba(0,0,0,0.05);
+	border-color: rgba(0,0,0,0.05) rgba(255,255,255,0.7) rgba(255,255,255,0.7) rgba(0,0,0,0.05);
 
 
 	li {

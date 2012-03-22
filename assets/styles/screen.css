@@ -312,6 +312,7 @@ form.default hr {
   background: rgba(0, 0, 0, 0.5);
   padding: 0;
   margin: 20px 0;
+  border-bottom: 1px solid #555;
   border-bottom: 1px solid rgba(255, 255, 255, 0.13);
   width: 100%;
   float: left;
@@ -386,7 +387,9 @@ form.default input.def, form.default textarea {
   box-sizing: border-box;
   font-family: "Helvetica Neue", sans-serif;
   font-size: 16px;
-  border: 1px solid #d1d2d4;
+  border: 1px solid;
+  border-color: #222 #444 #444 #222;
+  background: #333;
   background: rgba(255, 255, 255, 0.1);
   padding: 0.547em;
   margin: 0 0 0 0;
@@ -470,6 +473,7 @@ form.default .file {
   border: none;
   font-size: 15px;
   cursor: pointer;
+  background: #21b685;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #21b685), color-stop(100%, #1a926a));
   background-image: -webkit-linear-gradient(#21b685, #1a926a);
   background-image: -moz-linear-gradient(#21b685, #1a926a);
@@ -480,6 +484,7 @@ form.default .file {
 }
 
 .button:hover, a.btn:hover {
+  background: #6E6E6E;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #6e6e6e), color-stop(100%, #4a4a4a));
   background-image: -webkit-linear-gradient(#6e6e6e, #4a4a4a);
   background-image: -moz-linear-gradient(#6e6e6e, #4a4a4a);
@@ -641,8 +646,10 @@ header#top nav a {
   -o-transition-duration: 0.15s;
   transition-duration: 0.15s;
   -webkit-transition-timing-function: ease-in-out;
+  outline: none;
 }
 header#top nav a:hover {
+  background: #20B685;
   background: rgba(33, 182, 133, 0.8);
   color: #fff;
   border-top-color: rgba(13, 74, 54, 0.7);
@@ -666,6 +673,7 @@ header#top nav a.active:after, header#top nav a.active:active:after {
   display: block;
   content: "";
   border: 4px solid;
+  border-color: transparent transparent transparent #E8E8E8;
   border-color: transparent transparent transparent rgba(232, 232, 232, 0.95);
   width: 0px;
   height: 0px;
@@ -676,7 +684,7 @@ header#top nav a.active:after, header#top nav a.active:active:after {
   color: #e8e8e8;
 }
 header#top nav a:active {
-  background: #fff;
+  background: #000;
   border-top-color: rgba(0, 0, 0, 0.2);
   border-bottom-color: rgba(255, 255, 255, 0.075);
 }
@@ -770,6 +778,7 @@ footer#bottom dl dd a {
 }
 #content section#intro p a {
   padding: 1px 2px;
+  background: #D1EFE6;
   background: rgba(33, 182, 133, 0.2);
   font-weight: normal;
   color: black;
@@ -936,7 +945,7 @@ section#services article p {
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
-#portfolio article h2 a span:hover {
+#portfolio article h2 a span:hover, #portfolio article h2 a span:focus {
   background: #21b685;
 }
 #portfolio article h2 a span:after {
@@ -1152,8 +1161,10 @@ ul.contacts {
   list-style: none;
   margin: 20px 0 0 0;
   padding: 0 20px;
+  background: #eee;
   background: rgba(0, 0, 0, 0.05);
   border: 1px solid;
+  border-color: #ccc #fff #ccc #fff;
   border-color: rgba(0, 0, 0, 0.05) rgba(255, 255, 255, 0.7) rgba(255, 255, 255, 0.7) rgba(0, 0, 0, 0.05);
 }
 ul.contacts li {

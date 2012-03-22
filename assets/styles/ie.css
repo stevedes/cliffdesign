@@ -1,3 +1,6 @@
+#portfolio article h2 a {
+  outline: none;
+}
 #portfolio article h2 a span {
   top: 0px;
   right: -50px;
