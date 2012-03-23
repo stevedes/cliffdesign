@@ -21,8 +21,8 @@
 				}
 				yepnope([
 					'/assets/scripts/plugins.js',
-					'/assets/scripts/master.js',
-					'ielt9!/assets/scripts/libs/selectivizr-min.js'
+					'/assets/scripts/master.js'
+					//'ielt9!/assets/scripts/libs/selectivizr-min.js'
 				]);
 			}
 		});

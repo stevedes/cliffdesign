@@ -3,9 +3,11 @@
 <div id="content" role="main">
 
 	<section id="intro">
+		<h1><span>Welcome</span></h1>
 		<?php echo kirbytext($page->text()) ?>
 	</section>
 
+	<?php $n = 0; ?>
 
 	<?php foreach($pages->visible() AS $section) : ?>
 
@@ -21,7 +23,7 @@
 			</figure>
 			<?php endif ?>
 
-			<h1><?php echo html($section->title()) ?></h1>
+			<h1><span><?php echo html($section->title()) ?></span></h1>
 
 			<?php echo kirbytext($section->text()) ?>
 
@@ -55,7 +57,7 @@
 					
 					<?php if($section->fragment() == 'portfolio'): ?>
 
-						<article class="open">
+						<article class="open" id="<?php echo $item->uid(); ?>">
 							
 							<?php $cover = $item->images()->find('cover.jpg') ?>
 							<?php if ($cover) : ?>
@@ -69,7 +71,8 @@
 							<div class="contents">
 								
 								<?php
-
+								// moved this to ajax call. More responsive
+								/*
 								// tags?
 								if ($item->tags()) {
 									$tags = split(', ', $item->tags());
@@ -120,7 +123,7 @@
 										echo '</div></div>';
 									}
 								}
-
+								*/
 								?>
 			
 							</div>
@@ -139,7 +142,7 @@
 
 					<?php elseif($section->fragment() == 'services'): ?>
 
-						<article class="<?php echo $item->fragment() ?>">
+						<article class="<?php echo $item->fragment() ?><?php echo ($n%2) ? ' odd' : ' even' ?>">
 							<?php if($item->hasImages()) : ?> 
 								<figure>
 									<img src="<?php echo $item->images()->first()->url() ?>" />
@@ -150,6 +153,7 @@
 							<?php echo kirbytext($item->text()) ?>
 						</article>
 
+						<?php $n++; ?>
 					<?php elseif($section->fragment() == 'pipeline'): ?>
 						
 						<article class="<?php echo $item->fragment() ?>">

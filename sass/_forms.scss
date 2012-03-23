@@ -14,7 +14,6 @@ form.default {
     @include box-shadow(inset 2px 2px 2px rgba(0,0,0,0.8));
     color: $white-text;
     margin-top: $gutter;
-
     &.sent {
         background: transparent;
         padding-left: 0;
@@ -92,9 +91,12 @@ form.default {
     label {
         @include border-box();
         display: block;
-        padding: rhythm(0.3) 0 rhythm(0.25) 0;
-        width: 17.5%;
-        float: left;
+
+        @media screen and (min-width: 560px) {
+            padding: rhythm(0.3) 0 rhythm(0.25) 0;
+            width: 17.5%;
+            float: left;
+        }
         font-size: 12px;
         text-transform: uppercase;
         font-weight: bold;
@@ -133,8 +135,12 @@ form.default {
         background: rgba(255,255,255,0.1);
         padding: rhythm(0.35);
         margin: 0 0 0 0;
-        width: 82.5%;
-        float: right;
+
+        width: 100%;
+        @media screen and (min-width: 560px) {
+            width: 82.5%;
+            float: right;
+        }
         border-color: rgba(0,0,0,0.5) rgba(255,255,255,0.05) rgba(255,255,255,0.05) rgba(0,0,0,0.5) ;
         //@include box-shadow(rgba(0,0,0,0.05) 0px 0px 5px);
         color: $white-text;
@@ -211,7 +217,10 @@ form.default {
     cursor: pointer;
     background: $green;
     @include background-image(linear-gradient($green, scale-lightness($green, -20)));
-    margin-left: 17.5%;
+
+    @media screen and (min-width: 560px) {
+        margin-left: 17.5%;
+    }
 }
 
 .button:hover, a.btn:hover {

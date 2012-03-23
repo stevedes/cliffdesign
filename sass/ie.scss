@@ -1,3 +1,69 @@
+body {
+	background: #fff url('/assets/images/sidebar.png') 0px 0px repeat-y;
+}
+header#top {
+	position: fixed;
+	width: 225px;
+	top: 0px;
+	left: 0px;
+
+	nav {
+		display: block;
+	}
+		
+}
+
+footer#bottom {
+
+	display: block;
+	position: fixed;
+	width: 185px;
+	bottom: 0px;
+	left: 0px;
+}
+
+#content {
+	margin-left: 225px;
+	max-width: auto;
+
+	section {
+		padding-right: 50px;
+
+		&#intro {
+			h2 {
+				font-size: 32px;
+				padding-right: 50px;
+			}
+		}
+		&#about {
+			padding-bottom: 0;
+		}
+	}
+}
+
+section#services {
+
+	article {
+
+		width: 50%;
+		padding-bottom: 40px;
+
+		&.even {
+			float: left;
+			clear: left;
+			padding-right: 10px;
+		}
+		&.odd {
+			float: right;
+			clear: right;
+			padding-left: 10px;
+		}
+	}
+}
+	
+
+
+	
 
 #portfolio {
 	article {
@@ -8,7 +74,43 @@
 					top: 0px;
 					right: -50px;
 				}
+				span.open {
+					display: block;
+				}
+			}
+
+			em {
+				display: inline-block;
 			}
 		}
+
+		.contents {
+			display: block;
+		}
 	}
+}
+
+ul.contacts {
+	li {
+		width: 33.333333333%;
+		float: left;
+	}
+}
+
+
+form.default {
+	label {
+        padding: rhythm(0.3) 0 rhythm(0.25) 0;
+        width: 17.5%;
+        float: left;
+    }
+    input.def, textarea {
+    
+        width: 82.5%;
+        float: right;
+    }
+}
+
+.button, a.btn {
+    margin-left: 17.5%;
 }

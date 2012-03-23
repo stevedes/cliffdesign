@@ -69,11 +69,16 @@ html {
 }
 
 body {
-  font-family: "Helvetica Neue", sans-serif;
+  font-family: "Helvetica Neue", Helvetica, arial, sans-serif;
   color: black;
-  background: white url("/assets/images/sidebar.png") 0px 0px repeat-y;
+  background: white url("/assets/images/header.jpg") 0px 0px repeat-x;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
+}
+@media screen and (min-width: 990px) {
+  body {
+    background: white url("/assets/images/sidebar.png") 0px 0px repeat-y;
+  }
 }
 
 .print_only {
@@ -88,6 +93,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, arial, sans-serif;
 }
 
 h1 {
@@ -96,6 +102,23 @@ h1 {
   margin-bottom: 0.625em;
   font-weight: 600;
   text-transform: uppercase;
+  color: #eee;
+  font-size: 14px;
+  padding: 0;
+  line-height: 1em;
+  margin: 6px 0 40px 0;
+  overflow: hidden;
+  *zoom: 1;
+}
+h1 span {
+  display: block;
+  float: left;
+  line-height: 1.5em;
+  padding: 0 0.391em;
+  background: #333;
+}
+#about h1 {
+  margin-bottom: 36px;
 }
 
 h2 {
@@ -355,13 +378,17 @@ form.default label {
   -ms-box-sizing: border-box;
   box-sizing: border-box;
   display: block;
-  padding: 0.469em 0 0.391em 0;
-  width: 17.5%;
-  float: left;
   font-size: 12px;
   text-transform: uppercase;
   font-weight: bold;
   color: #bababa;
+}
+@media screen and (min-width: 560px) {
+  form.default label {
+    padding: 0.469em 0 0.391em 0;
+    width: 17.5%;
+    float: left;
+  }
 }
 form.default label.cbox {
   width: auto;
@@ -385,7 +412,7 @@ form.default input.def, form.default textarea {
   -webkit-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: "Helvetica Neue", sans-serif;
+  font-family: "Helvetica Neue", Helvetica, arial, sans-serif;
   font-size: 16px;
   border: 1px solid;
   border-color: #222 #444 #444 #222;
@@ -393,8 +420,7 @@ form.default input.def, form.default textarea {
   background: rgba(255, 255, 255, 0.1);
   padding: 0.547em;
   margin: 0 0 0 0;
-  width: 82.5%;
-  float: right;
+  width: 100%;
   border-color: rgba(0, 0, 0, 0.5) rgba(255, 255, 255, 0.05) rgba(255, 255, 255, 0.05) rgba(0, 0, 0, 0.5);
   color: #e8e8e8;
   outline: none;
@@ -409,6 +435,12 @@ form.default input.def, form.default textarea {
   -o-transition-duration: 0.1s;
   transition-duration: 0.1s;
   -webkit-transition-timing-function: ease-in-out;
+}
+@media screen and (min-width: 560px) {
+  form.default input.def, form.default textarea {
+    width: 82.5%;
+    float: right;
+  }
 }
 form.default input.def:focus, form.default textarea:focus {
   -webkit-box-shadow: 0px 0px 6px #21b685;
@@ -480,7 +512,11 @@ form.default .file {
   background-image: -o-linear-gradient(#21b685, #1a926a);
   background-image: -ms-linear-gradient(#21b685, #1a926a);
   background-image: linear-gradient(#21b685, #1a926a);
-  margin-left: 17.5%;
+}
+@media screen and (min-width: 560px) {
+  .button, a.btn {
+    margin-left: 17.5%;
+  }
 }
 
 .button:hover, a.btn:hover {
@@ -575,12 +611,6 @@ div.form_done {
   *zoom: 1;
 }
 
-header#top {
-  position: fixed;
-  width: 225px;
-  top: 0px;
-  left: 0px;
-}
 header#top h1 {
   margin: 0;
   padding: 0;
@@ -610,10 +640,24 @@ header#top h1 a span {
 header#top h1 a span:hover {
   opacity: 1;
 }
+@media screen and (min-width: 990px) {
+  header#top {
+    position: fixed;
+    width: 225px;
+    top: 0px;
+    left: 0px;
+  }
+}
 header#top nav {
   font-size: 12px;
   text-transform: uppercase;
   padding: 20px 0;
+  display: none;
+}
+@media screen and (min-width: 990px) {
+  header#top nav {
+    display: block;
+  }
 }
 header#top nav ul {
   list-style: none;
@@ -690,11 +734,17 @@ header#top nav a:active {
 }
 
 footer#bottom {
-  position: fixed;
-  width: 185px;
-  bottom: 0px;
-  left: 0px;
+  display: none;
   padding: 20px;
+}
+@media screen and (min-width: 990px) {
+  footer#bottom {
+    display: block;
+    position: fixed;
+    width: 185px;
+    bottom: 0px;
+    left: 0px;
+  }
 }
 footer#bottom h2 {
   color: #8c8f8f;
@@ -747,14 +797,28 @@ footer#bottom dl dd a {
 }
 
 #content {
-  margin-left: 225px;
+  max-width: 725px;
   padding: 20px 20px 20px 20px;
+}
+@media screen and (min-width: 990px) {
+  #content {
+    margin-left: 225px;
+  }
+}
+@media screen and (min-width: 768px) {
+  #content {
+    max-width: 725px;
+  }
 }
 #content section {
   padding-top: 40px;
-  padding-right: 50px;
   *zoom: 1;
   max-width: 715px;
+}
+@media screen and (min-width: 768px) {
+  #content section {
+    padding-right: 50px;
+  }
 }
 #content section:after {
   content: "";
@@ -763,13 +827,29 @@ footer#bottom dl dd a {
 }
 #content section#intro {
   padding-top: 20px;
+  padding-right: 0;
 }
 #content section#intro h2 {
-  font-size: 67.2px;
+  font-size: 25.6px;
   padding: 0;
-  line-height: 1.1em;
-  font-weight: 300;
+  line-height: 1.4em;
+  font-weight: 400;
+  color: #555;
+  margin-top: -8px;
+}
+@media screen and (min-width: 600px) {
+  #content section#intro h2 {
+    font-size: 32px;
+  }
+}
+@media screen and (min-width: 500px) {
+  #content section#intro h2 {
+    padding-right: 50px;
+  }
+}
+#content section#intro h2 strong {
   color: #21b685;
+  font-weight: 400;
 }
 #content section#intro p {
   margin-top: 1.563em;
@@ -800,6 +880,7 @@ footer#bottom dl dd a {
 #content section#about {
   position: relative;
   border-bottom: 1px solid #ccc;
+  padding-bottom: 60px;
 }
 #content section#about a.linkedin {
   display: block;
@@ -816,6 +897,11 @@ footer#bottom dl dd a {
 #content section#about a.linkedin:hover {
   background-position: 0px -20px;
 }
+@media screen and (min-width: 570px) {
+  #content section#about {
+    padding-bottom: 0;
+  }
+}
 #content section#about figure {
   width: 33.33333333%;
   float: right;
@@ -823,26 +909,31 @@ footer#bottom dl dd a {
 }
 
 section#services article {
-  width: 50%;
+  padding-bottom: 20px;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
-  padding-bottom: 40px;
 }
 section#services article div.inner {
   padding: 20px;
   background: #fff;
 }
-section#services article:nth-child(even) {
-  float: left;
-  clear: left;
-  padding-right: 10px;
-}
-section#services article:nth-child(odd) {
-  float: right;
-  clear: right;
-  padding-left: 10px;
+@media screen and (min-width: 600px) {
+  section#services article {
+    width: 50%;
+    padding-bottom: 40px;
+  }
+  section#services article.even {
+    float: left;
+    clear: left;
+    padding-right: 10px;
+  }
+  section#services article.odd {
+    float: right;
+    clear: right;
+    padding-left: 10px;
+  }
 }
 section#services article figure {
   padding-bottom: 10px;
@@ -916,8 +1007,10 @@ section#services article p {
   transition-duration: 0.1s;
   -webkit-transition-timing-function: ease-in-out;
 }
+#portfolio article h2 a span, #portfolio article h2 a span.open {
+  display: none;
+}
 #portfolio article h2 a span {
-  display: block;
   width: 50px;
   height: 100%;
   background: #21b685;
@@ -976,12 +1069,22 @@ section#services article p {
 #portfolio article h2 a:hover span {
   border-color: transparent;
 }
+@media screen and (min-width: 768px) {
+  #portfolio article h2 a span.open {
+    display: block;
+  }
+}
 #portfolio article h2 em {
   font-size: 11px;
-  display: inline-block;
   padding-left: 20px;
   text-transform: uppercase;
   font-style: normal;
+  display: none;
+}
+@media screen and (min-width: 600px) {
+  #portfolio article h2 em {
+    display: inline-block;
+  }
 }
 #portfolio article.open h2 a {
   color: #e8e8e8;
@@ -1000,6 +1103,12 @@ section#services article p {
 #portfolio article .contents {
   overflow: hidden;
   *zoom: 1;
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  #portfolio article .contents {
+    display: block;
+  }
 }
 
 #pipeline article {
@@ -1172,11 +1281,15 @@ ul.contacts li {
   -webkit-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
-  width: 33.333333333%;
-  float: left;
   padding: 20px 20px 20px 40px;
   background-image: url("/assets/images/contact_icons_black.png");
   background-repeat: no-repeat;
+}
+@media screen and (min-width: 600px) {
+  ul.contacts li {
+    width: 33.333333333%;
+    float: left;
+  }
 }
 ul.contacts li.post {
   background-position: 0px 25px;

@@ -88,6 +88,8 @@
 				time_to_open = 0,
 				time_to_close = 0;
 
+			contents.load('/portfolio/' + container.attr('id') + '/');
+
 			// Init from no JS state
 			container
 				.removeClass('open')
@@ -435,11 +437,10 @@
 		head = html.find('head');
 		body = html.find('body');
 
-		
+		var window_width = $(window).width();
 
 		// Waypoints
 		$('#navigation a').addWaypoints();
-
 
 		// Set height of last section to at least window height
 		var last_nav = body.find('#navigation li:last-child a').attr('href'); // last nav
@@ -532,8 +533,7 @@
 		// Dropdown portfolio items
 
 		// not for less than ie8
-		if (!html.hasClass('lt-ie8')) {
-
+		if (!html.hasClass('lt-ie8') && window_width > 767) {
 			body.find('#portfolio article').folioDrop();
 		}
 		

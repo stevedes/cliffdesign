@@ -31,7 +31,8 @@ $content-column: percentage(695 / 940);
 $sidebar-column: percentage(225 / 940);
 
 // Base Styles
-$font-family: "Helvetica Neue", sans-serif;
+$font-family: "Helvetica Neue", Helvetica, arial, sans-serif;
+$heading-font-family: "Open Sans", "Helvetica Neue", Helvetica, arial, sans-serif;
 $text-color: #000;
 $green: #21b685;
 $white-text: #e8e8e8;
@@ -54,7 +55,12 @@ html {
 body {
 	font-family: $font-family;
 	color: $text-color;
-	background: #fff url('/assets/images/sidebar.png') 0px 0px repeat-y;
+
+	background: #fff url('/assets/images/header.jpg') 0px 0px repeat-x;
+		
+	@media screen and (min-width: 990px) {
+		background: #fff url('/assets/images/sidebar.png') 0px 0px repeat-y;
+	}
 
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%; 
@@ -80,11 +86,7 @@ body {
 
 
 header#top {
-	position: fixed;
-	width: 225px;
-	top: 0px;
-	left: 0px;
-
+	
 	h1 {
 		margin: 0;
 		padding: 0;
@@ -122,10 +124,24 @@ header#top {
 		}
 	}
 
+	@media screen and (min-width: 990px) {
+		position: fixed;
+		width: 225px;
+		top: 0px;
+		left: 0px;
+	}
+
+
 	nav {
 		font-size: 12px;
 		text-transform: uppercase;
 		padding: ($gutter) 0;
+
+		display: none;
+		@media screen and (min-width: 990px) {
+			display: block;
+		}
+
 		ul {
 			list-style: none;
 			margin: 0;
@@ -198,10 +214,19 @@ header#top {
 }
 
 footer#bottom {
-	position: fixed;
-	width: 185px;
-	bottom: 0px;
-	left: 0px;
+
+	display: none;
+
+	@media screen and (min-width: 990px) {
+		display: block;
+		position: fixed;
+		width: 185px;
+		bottom: 0px;
+		left: 0px;
+	}
+
+	
+	
 	padding: $gutter;
 	h2 {
 		color: #8c8f8f;
@@ -253,27 +278,50 @@ footer#bottom {
 
 
 #content {
-	margin-left: 225px;
+
+	@media screen and (min-width: 990px) {
+		margin-left: 225px;
+	}
+
+	max-width: 725px;
+	@media screen and (min-width: 768px) {
+		max-width: 725px;
+	}
 	//float: left;
 	padding: $gutter $gutter $gutter $gutter;
 	
 
 	section {
 		padding-top: $gutter * 2;
-		padding-right: 50px;
+
+		@media screen and (min-width: 768px) {
+			padding-right: 50px;
+		}
 		@include pie-clearfix;
 
 		max-width: 715px; // firefox chokes without this, dunno why!
 
 		&#intro {
 			padding-top: $gutter;
-
+			padding-right: 0;
 			h2 {
-				font-size: ($base-font-size * 4.2);
+
+				font-size: ($base-font-size * 1.6);
+				@media screen and (min-width: 600px) {
+					font-size: ($base-font-size * 2);
+				}
 				padding: 0;
-				line-height: 1.1em;
-				font-weight: 300;
-				color: $green;
+				line-height: 1.4em;
+				font-weight: 400;
+				color: #555;
+				@media screen and (min-width: 500px) {
+					padding-right: 50px;
+				}
+				margin-top: -8px;
+				strong {
+					color: $green;
+					font-weight: 400;
+				}
 			}
 
 			p {
@@ -320,6 +368,12 @@ footer#bottom {
 					background-position: 0px -20px;
 				}
 			}
+
+			padding-bottom: ($gutter * 3);
+			@media screen and (min-width: 570px) {
+				padding-bottom: 0;
+			}
+
 			figure {
 				width: 33.33333333%;
 				float: right;
@@ -339,19 +393,25 @@ section#services {
 			background: #fff;
 		}
 
-		width: 50%;
-		@include border-box();
-		padding-bottom: ($gutter * 2);
+		padding-bottom: $gutter;
 
-		&:nth-child(even) {
-			float: left;
-			clear: left;
-			padding-right: $gutter / 2;
-		}
-		&:nth-child(odd) {
-			float: right;
-			clear: right;
-			padding-left: $gutter / 2;
+		@include border-box;
+
+		@media screen and (min-width: 600px) {
+
+			width: 50%;
+			padding-bottom: ($gutter * 2);
+
+			&.even {
+				float: left;
+				clear: left;
+				padding-right: $gutter / 2;
+			}
+			&.odd {
+				float: right;
+				clear: right;
+				padding-left: $gutter / 2;
+			}
 		}
 		
 		figure {
@@ -411,10 +471,13 @@ section#services {
 				
 				@include transition-property(all);
 				@include transition-duration(0.1s);
-				-webkit-transition-timing-function: ease-in-out;
-				
+				-webkit-transition-timing-function: ease-in-out;			
+
+				span, span.open {
+					display: none;
+				}
+
 				span {
-					display: block;
 					width: 50px;
 					height: 100%;
 					background: $green;
@@ -471,7 +534,7 @@ section#services {
 						background: #fff;
 					}
 				}
-
+	
 
 				&:hover {
 					background: #000;
@@ -483,12 +546,26 @@ section#services {
 				}
 			
 			}
+
+			@media screen and (min-width: 768px) {
+				a {
+					span.open {
+						display: block;
+					}
+				}
+			}
 			em {
 				font-size: 11px;
-				display: inline-block;
 				padding-left: $gutter;
 				text-transform: uppercase;
 				font-style: normal;
+				display: none;
+			}
+
+			@media screen and (min-width: 600px) {
+				em {
+					display: inline-block;
+				}
 			}
 		}
 
@@ -512,9 +589,16 @@ section#services {
 			}
 		}
 
+
 		.contents {
 			@include clearfix();
 			//-webkit-transform-style:preserve-3d;
+			display: none;
+		}
+		@media screen and (min-width: 768px) {
+			.contents {
+				display: block;
+			}
 		}
 	}
 }
@@ -718,8 +802,12 @@ ul.contacts {
 
 	li {
 		@include border-box;
-		width: 33.333333333%;
-		float: left;
+
+		@media screen and (min-width: 600px) {
+			width: 33.333333333%;
+			float: left;
+
+		}
 		padding: $gutter $gutter $gutter ($gutter * 2);
 		background-image: url('/assets/images/contact_icons_black.png');
 		background-repeat: no-repeat;

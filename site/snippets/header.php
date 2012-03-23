@@ -13,6 +13,8 @@
 
   <link rel="icon shortcut" href="/favicon.ico" type="image/vnd.microsoft.com" />
   
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet' type='text/css'>
+
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <?php echo js('assets/scripts/libs/modernizr-2.5.2.min.js') ?>
@@ -40,7 +42,7 @@
       }(document));
   </script>
 
-  <?php echo css('assets/styles/screen.css') ?>
+  <?php echo css('assets/styles/screen.css?v=1.2') ?>
 
   <!--[if lt IE 9]>
   <?php echo css('assets/styles/ie.css') ?>
