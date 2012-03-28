@@ -1033,6 +1033,7 @@ section#services article p {
   display: none;
   -webkit-backface-visibility: "hidden";
   backface-visibility: "hidden";
+  -webkit-transform: translateZ(0);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-transform-style: preserve-3d;
